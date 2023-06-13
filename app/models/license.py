@@ -1,5 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
-from datetime import date
+from datetime import datetime
 
 
 class License(db.Model):
@@ -19,5 +19,6 @@ class License(db.Model):
     caption = db.Column(db.String(400))
     type = db.Column(db.String(25), nullable=False)
     price = db.Column(db.Integer, nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.now())
 
     user = db.relationship('User', back_populates='licenses')
