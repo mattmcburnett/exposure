@@ -22,7 +22,7 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime, default=datetime.now())
 
     images = db.relationship('Image', back_populates='user', cascade="all, delete-orphan")
-    licenses = db.realtionship('License', back_populates='user', cascade="all, delete-orphan")
+    licenses = db.relationship('License', back_populates='user', cascade="all, delete-orphan")
 
     @property
     def password(self):
@@ -39,5 +39,12 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'hashed_password': self.hashed_password,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+            'age': self.age,
+            'about': self.about,
+            'profile_pic': self.profile_pic,
+            'created_at': self.created_at
         }

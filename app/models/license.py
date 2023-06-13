@@ -22,3 +22,19 @@ class License(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.now())
 
     user = db.relationship('User', back_populates='licenses')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'image_id': self.image_id,
+            'image_owner_id': self.image_owner_id,
+            'artist_first_name': self.artist_first_name,
+            'artist_last_name': self. artist_last_name,
+            'image': self.image,
+            'title': self.title,
+            'caption': self.caption,
+            'type': self.type,
+            'price': self.price,
+            'created_at': self.created_at
+        }

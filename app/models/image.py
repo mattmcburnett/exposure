@@ -22,3 +22,19 @@ class Image(db.Model):
 
     user = db.relationship('User', back_populates='images')
     licenses = db.relationship('License', back_populates='image')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'image': self.image,
+            'title': self.title,
+            'caption': self.caption,
+            'owner_id': self.owner_id,
+            'artist_first_name': self.artist_first_name,
+            'artist_last_name': self. artist_last_name,
+            'basic_price': self.basic_price,
+            'exclusive_price': self.exclusive_price,
+            'royalty_rate': self. royalty_rate,
+            'created_at': self.created_at,
+            'user': self.user.to_dict()
+        }
