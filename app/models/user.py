@@ -1,7 +1,7 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from datetime import date
+from datetime import datetime
 
 
 class User(db.Model, UserMixin):
@@ -19,7 +19,7 @@ class User(db.Model, UserMixin):
     age = db.Column(db.Integer, nullable= False)
     about = db.Column(db.String(400))
     profile_pic = db.Column(db.String(300))
-    created_at = db.Column(db.DateTime, default=date.now())
+    created_at = db.Column(db.DateTime, default=datetime.now())
 
     images = db.relationship('Image', back_populates='user', cascade="all, delete-orphan")
     licenses = db.realtionship('License', back_populates='user', cascade="all, delete-orphan")

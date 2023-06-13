@@ -1,5 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
-from datetime import date
+from datetime import datetime
 
 
 class Image(db.Model):
@@ -18,6 +18,7 @@ class Image(db.Model):
     basic_price = db.Column(db.Integer)
     exclusive_price = db.Column(db.Integer)
     royalty_rate = db.Column(db.Integer)
+    created_at = db.Column(db.DateTime, default=datetime.now())
 
     user = db.relationship('User', back_populates='images')
     licenses = db.relationship('License', back_populates='image')
