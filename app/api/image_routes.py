@@ -11,12 +11,11 @@ image_routes = Blueprint('images', __name__)
 @login_required
 def upload_image():
     """Current user uploads an image"""
-
     form = ImageUploadForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-
+        print('form data =======', form.data)
         image = form.data["image"]
         image.filename = get_unique_filename(image.filename)
         upload = upload_file_to_s3(image)
@@ -38,7 +37,7 @@ def upload_image():
             artist_last_name = form.data['artist_last_name'],
             basic_price = form.data['basic_price'],
             exclusive_price = form.data['exclusive_price'],
-            royalty_rate = form.data['title']
+            royalty_rate = form.data['royalty_rate']
         )
 
         db.session.add(new_image)

@@ -42,7 +42,6 @@ function UploadImagePage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(currentUser)
 
         if (Object.values(errors).length) {
             setHasErrors(true)
@@ -57,8 +56,9 @@ function UploadImagePage() {
             imageData.append('basic_price', basicPrice);
             imageData.append('exclusive_price', exclusivePrice);
             imageData.append('royalty_rate', royaltyRate);
-            // console.log(imageData.get('title'));
+
             const res = await dispatch(uploadImageThunk(imageData));
+            console.log(res);
             // history.push(`/${currentUser.id}/${res.id}`);
         }
     }

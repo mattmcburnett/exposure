@@ -1,10 +1,10 @@
-const ADD_IMAGE = "image/ADD_IMAGE";
+// const ADD_IMAGE = "image/ADD_IMAGE";
 const GET_IMAGE = "image/GET_IMAGE";
 
-const addImage = (image) => ({
-    type: ADD_IMAGE,
-    payload: image
-})
+// const addImage = (image) => ({
+//     type: ADD_IMAGE,
+//     payload: image
+// })
 
 const getImage = image => ({
     type: GET_IMAGE,
@@ -14,15 +14,16 @@ const getImage = image => ({
 
 
 
-export const uploadImageThunk = (imageData) = async (dispatch) => {
+export const uploadImageThunk = (imageData) => async (dispatch) => {
 
-    const response = await fetch('api/images', {
+    const response = await fetch('api/images/', {
         method: "POST",
         body: imageData
     })
 
     if (response.ok) {
         const newImage = await response.json();
+        console.log('newImage: ', newImage)
         dispatch(getImage(newImage))
         return newImage
     } else {
@@ -38,7 +39,7 @@ export default function reducer(state = initialState, action) {
     switch (action.type) {
         case GET_IMAGE:
             const newState = {...state}
-            newState.currentImage = action.image
+            newState.currentImage = action.payload
             return newState
         default:
             return state
