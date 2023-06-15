@@ -15,7 +15,6 @@ def upload_image():
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        print('form data =======', form.data)
         image = form.data["image"]
         image.filename = get_unique_filename(image.filename)
         upload = upload_file_to_s3(image)
@@ -42,4 +41,5 @@ def upload_image():
 
         db.session.add(new_image)
         db.session.commit()
+        print('here the NEW IMAGE', new_image.to_dict())
         return new_image.to_dict()
