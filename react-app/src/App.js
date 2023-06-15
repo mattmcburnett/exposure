@@ -5,6 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
+import UploadImagePage from "./components/UploadImagePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,6 +19,12 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route path='/upload'>
+            <h1>Uploads</h1>
+            <h1>Uploads</h1>
+            <h1>Uploads</h1>
+            <UploadImagePage />
+          </Route>
           <Route path="/login" >
             <LoginFormPage />
           </Route>
