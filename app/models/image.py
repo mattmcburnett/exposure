@@ -36,5 +36,5 @@ class Image(db.Model):
             'exclusive_price': self.exclusive_price,
             'royalty_rate': self. royalty_rate,
             'created_at': self.created_at,
-            'user': self.user.to_dict()
+            # 'user': self.user.to_dict()
         }

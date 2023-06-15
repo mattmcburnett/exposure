@@ -42,4 +42,4 @@ def upload_image():
         db.session.add(new_image)
         db.session.commit()
         print('here the NEW IMAGE', new_image.to_dict())
-        return new_image
+        return new_image.to_dict()
