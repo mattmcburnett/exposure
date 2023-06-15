@@ -1,33 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import './UploadImagePage.css'
+import './ImagePage.css'
 import { useHistory, useParams } from "react-router-dom";
-
+import { getOneImageThunk } from "../../store/image";
 
 
 function ImagePage() {
 
-    const {imageId, userId} = useParams();
-    const [image, setImage] = useState({});
-    const [errors, setErrors] = useState('')
+    const {imageId} = useParams();
+    const [errors, setErrors] = useState('');
+    const dispatch = useDispatch();
+    const image = useSelector(state => state.image.currentImage)
 
     useEffect(() => {
-        async () => {
-            const res = await fetch(`api/${userId}/${imageId}`);
-            if (res.ok) {
-                const data = await res.json();
-                setImage(data)
-            } else {
-                setErrors = 'Image could not be found'
-            }
-        }
+
+        dispatch(getOneImageThunk(imageId))
+
     }, [])
 
     return (
         <div id="single-image-page-container">
             <div id="single-image-bar">
-                <img src={image.image}/>
+                <h1>Hi from image page</h1>
+                { image && <img src={image.image}/>}
             </div>
             <div>
                 <div id="single-image-information">
