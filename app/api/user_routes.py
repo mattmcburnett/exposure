@@ -23,3 +23,9 @@ def user(id):
     """
     user = User.query.get(id)
     return user.to_dict()
+
+
+@user_routes.route('/<int:id>/<int:img_id>')
+@login_required
+def view_image(user_id, image_id):
+    """Query for a user's image by user ID and image ID"""

@@ -26,6 +26,8 @@ function UploadImagePage() {
     const history = useHistory();
     const currentUser = useSelector(state => state.session.user)
 
+    // console.log(currentUser)
+
     useEffect (() => {
         const newErrors = {}
         if (!image) newErrors.image = 'Image is required';
@@ -58,7 +60,7 @@ function UploadImagePage() {
             imageData.append('royalty_rate', royaltyRate);
 
             const res = await dispatch(uploadImageThunk(imageData));
-            console.log(res);
+            // console.log(res);
             // history.push(`/${currentUser.id}/${res.id}`);
         }
     }
