@@ -6,6 +6,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import UploadImagePage from "./components/UploadImagePage";
+import ImagePage from "./components/ImagePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path='/:userId/:imageId'>
+            <ImagePage />
           </Route>
         </Switch>
       )}

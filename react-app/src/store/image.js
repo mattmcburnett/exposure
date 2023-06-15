@@ -12,6 +12,23 @@ const getImage = image => ({
 })
 
 
+export const getOneImageThunk = (imageId) => async (dispatch) => {
+    // console.log('image id in thunk', imageId)
+
+    const res = await fetch(`/api/images/${imageId}`)
+    //fetch is sending user id in front of api
+    // console.log('res in thunk', res)
+    if (res.ok) {
+        const image = await res.json();
+        dispatch(getImage(image));
+        return image;
+    } else {
+        const errors = await res.json();
+        return errors;
+    }
+}
+
+
 
 
 export const uploadImageThunk = (imageData) => async (dispatch) => {

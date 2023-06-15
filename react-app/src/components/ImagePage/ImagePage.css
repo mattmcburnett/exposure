@@ -1,0 +1,10 @@
+#single-image-page-container {
+    height: 100vh;
+}
+
+#single-image-bar {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

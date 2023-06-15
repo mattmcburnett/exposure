@@ -45,3 +45,16 @@ def upload_image():
         db.session.commit()
         print('here the NEW IMAGE', new_image.to_dict())
         return new_image.to_dict()
+
+
+@image_routes.route('/<int:id>')
+@login_required
+def view_image(id):
+
+    """Query for a user's image by image ID"""
+
+
+    print("Hitting the get one image route**********")
+
+    current_image = Image.query.get(id)
+    return current_image.to_dict()
