@@ -73,7 +73,7 @@ function ImagePage() {
                     </div>
                     {currentUserId === image.owner_id &&
                         <OpenModalButton
-                            buttonText='Edit Image'
+                            buttonText={<i className="fa-solid fa-pencil"></i>}
                             modalComponent={<UpdateImageModal currentImage={image}/>}
                         />
                     }

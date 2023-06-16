@@ -1,0 +1,70 @@
+#update-image-modal-container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#update-image-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+#update-image-modal-header i {
+    font-size: .8em;
+}
+
+#update-image-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#update-image-form label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 13px;
+}
+
+#modal-content {
+    border-radius: 5px;
+}
+
+#update-image-form input {
+    height: 30px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #555555;
+}
+#update-image-form textarea {
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 200px;
+    min-height: 30px;
+}
+
+#update-image-form button {
+    height: 40px;
+    background-color: #128fdc;
+    border: none;
+    color: white;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+#update-image-form i {
+
+    color: white;
+    margin-left: 5px;
+
+}
+
+#update-image-form button:hover {
+    cursor: pointer;
+    background-color: #389bd9;
+}

@@ -17,6 +17,7 @@ function UpdateImageModal() {
     const [royaltyRate, setRoyaltyRate] = useState(currentImage.royalty_rate);
     const [errors, setErrors] = useState({});
     const dispatch = useDispatch();
+    const { closeModal } = useModal();
 
     // useEffect(() => {
     //     const newErrors = {}
@@ -39,48 +40,62 @@ function UpdateImageModal() {
         const imageId = currentImage.id;
         console.log('current image id in handle submit', imageId)
         const data = await dispatch(updateImageThunk(title, caption, basicPrice, exclusivePrice, royaltyRate, imageId))
-
+        closeModal();
     }
 
     return (
-        <div>
-            <p>Edit Your Image</p>
-            <form onSubmit={handleSubmit}>
+        <div id='update-image-modal-container'>
+            <div id="update-image-modal-header">
+                <p>Edit Your Image</p>
+            </div>
+            <form id="update-image-form" onSubmit={handleSubmit}>
                 <label>
+                    Title
                     <input
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                     ></input>
                 </label>
                 <label>
-                    <input
+                    Caption
+                    <textarea
                         value={caption}
                         onChange={(e) => setCaption(e.target.value)}
                     >
-                    </input>
+                    </textarea>
                 </label>
                 <label>
+                    Basic Price
                     <input
+                        type="number"
+                        min={0}
                         value={basicPrice}
                         onChange={(e) => setBasicPrice(e.target.value)}
                     >
                     </input>
                 </label>
                 <label>
+                    Exclusive Price
                     <input
+                        type="number"
+                        min={0}
                         value={exclusivePrice}
                         onChange={(e) => setExclusivePrice(e.target.value)}
                     >
                     </input>
                 </label>
                 <label>
+                    Royalty Rate
                     <input
+                        type="number"
+                        min={0}
+                        max={100}
                         value={royaltyRate}
                         onChange={(e) => setRoyaltyRate(e.target.value)}
                     >
                     </input>
                 </label>
-                <button type="submit">Save</button>
+                <button type="submit">Save Edits<i className="fa-regular fa-floppy-disk"></i></button>
             </form>
         </div>
     )
