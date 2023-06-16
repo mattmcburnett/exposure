@@ -26,13 +26,16 @@ function App() {
             <h1>Uploads</h1>
             <UploadImagePage />
           </Route>
-          <Route path="/login" >
+          <Route exact path="/login" >
             <LoginFormPage />
           </Route>
-          <Route path="/signup">
+          <Route exact path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path='/:userId/:imageId'>
+          <Route exact path='/:userId'>
+
+          </Route>
+          <Route exact path='/:userId/:imageId'>
             <ImagePage />
           </Route>
         </Switch>
