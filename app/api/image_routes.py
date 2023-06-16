@@ -90,15 +90,15 @@ def update_image(id):
 
     if form.validate_on_submit():
         image = Image.query.get(id)
-        dict_image = image.to_dict()
-        print('image dict after validat on submit', dict_image)
-        dict_image['title'] = form.data['title']
-        dict_image['caption'] = form.data['caption']
-        dict_image['basic_price'] = form.data['basic_price']
-        dict_image['exclusive_price'] = form.data['exclusive_price']
-        dict_image['royalty_rate'] = form.data['royalty_rate']
+        image.title = form.data['title']
+        # print('image dict after validat on submit', dict_image)
+        image.caption = form.data['caption']
+        image.basic_price = form.data['basic_price']
+        image.exclusive_price = form.data['exclusive_price']
+        image.royalty_rate = form.data['royalty_rate']
 
         db.session.commit()
+        dict_image = image.to_dict()
         return dict_image
     return {'errors': validation_errors_to_error_messages(form.errors)},401
 
