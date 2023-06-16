@@ -50,6 +50,32 @@ export const uploadImageThunk = (imageData) => async (dispatch) => {
 }
 
 
+export const updateImageThunk = (title, caption, basicPrice, exclusivePrice, royaltyRate, imageId) => async (dispatch) => {
+
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('caption', caption);
+    formData.append('basic_price', basicPrice);
+    formData.append('exclusive_price', exclusivePrice);
+    formData.append('royalty_rate', royaltyRate);
+
+    const res = await fetch(`/api/images/${imageId}`, {
+        method: 'PUT',
+        body: formData
+    });
+
+    if (res.ok) {
+        const updatedImage = await res.json();
+        dispatch(getImage(updatedImage));
+        return updatedImage;
+    } else {
+        const errors = await res.json();
+        return errors;
+    }
+
+}
+
+
 const initialState = {currentImage: {}, userImages: {}}
 
 export default function reducer(state = initialState, action) {

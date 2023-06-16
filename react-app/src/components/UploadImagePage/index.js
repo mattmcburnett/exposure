@@ -14,9 +14,6 @@ function UploadImagePage() {
     const [image, setImage] = useState();
     const [title, setTitle] = useState('');
     const [caption, setCaption] = useState('');
-    // const [ownerId, setOwnerId] = useState('');
-    // const [artistFirstName, setArtistFirstName] = useState('');
-    // const [artistLastName, setArtistLastName] = useState('');
     const [basicPrice, setBasicPrice] = useState(0);
     const [exclusivePrice, setExclusivePrice] = useState(0);
     const [royaltyRate, setRoyaltyRate] = useState(0);
