@@ -11,9 +11,14 @@ function Navigation({ isLoaded }){
 	return (
 		<div id='navbar-wrapper'>
 			<NavLink id='header-logo-and-title' exact to="/"><i class="fa-solid fa-camera"></i><p>Exposure</p></NavLink>
-				{isLoaded && sessionUser && (
-					<ProfileButton user={sessionUser} />
-				)}
+			<div id='navbar-buttons'>
+				<i className="fa-solid fa-cloud-arrow-up"></i>
+				<i className="fa-solid fa-cart-shopping"></i>
+				
+					{isLoaded && sessionUser && (
+						<ProfileButton user={sessionUser} />
+					)}
+			</div>
 		</div>
 	);
 }
