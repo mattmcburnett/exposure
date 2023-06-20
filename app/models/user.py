@@ -23,6 +23,7 @@ class User(db.Model, UserMixin):
 
     images = db.relationship('Image', back_populates='user', cascade="all, delete-orphan")
     licenses = db.relationship('License', back_populates='user', cascade="all, delete-orphan")
+    cart_items = db.relationship('CartItem', back_populates = 'user', cascade="all, delete-orphan")
 
     @property
     def password(self):

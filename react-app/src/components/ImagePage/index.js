@@ -6,7 +6,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { getOneImageThunk } from "../../store/image";
 import OpenModalButton from "../OpenModalButton";
 import UpdateImageModal from "../UpdateImageModal";
-
+import { createCartItemThunk } from "../../store/cart";
 
 function ImagePage() {
 
@@ -28,7 +28,12 @@ function ImagePage() {
 
     const handleSubmit = async (e) =>  {
         e.preventDefault();
-        //TODO cart creation
+        const cartItemData = new FormData();
+        cartItemData.append("type", type)
+        cartItemData.append('user_id', currentUserId)
+        cartItemData.append('image_id', image.id)
+        dispatch(createCartItemThunk(cartItemData))
+        return
     }
 
 
@@ -55,7 +60,7 @@ function ImagePage() {
                     </div>
                     <form onSubmit={handleSubmit}>
                         <label>
-                            <select>
+                            <select value={type} onChange={(e) => setType(e.target.value)}>
                                 <option value='basic'>Basic</option>
                                 <option value='exclusive'>Exclusive</option>
                                 <option value='royalty'>Royalty</option>
@@ -82,5 +87,6 @@ function ImagePage() {
         </div>
     )
 }
+
 
 export default ImagePage

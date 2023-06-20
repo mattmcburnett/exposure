@@ -40,7 +40,6 @@ export const uploadImageThunk = (imageData) => async (dispatch) => {
 
     if (response.ok) {
         const newImage = await response.json();
-        console.log('newImage: ', newImage)
         dispatch(getImage(newImage))
         return newImage
     } else {

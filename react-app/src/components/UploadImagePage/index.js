@@ -57,8 +57,7 @@ function UploadImagePage() {
             imageData.append('royalty_rate', royaltyRate);
 
             const res = await dispatch(uploadImageThunk(imageData));
-            // console.log(res);
-            // history.push(`/${currentUser.id}/${res.id}`);
+            history.push(`/${currentUser.id}/${res.id}`);
         }
     }
 
