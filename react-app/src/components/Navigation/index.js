@@ -22,13 +22,13 @@ function Navigation({ isLoaded }){
 	return (
 		<div id='navbar-wrapper'>
 			<NavLink id='header-logo-and-title' exact to="/"><i class="fa-solid fa-camera"></i><p>Exposure</p></NavLink>
-			<div id='navbar-buttons'>
-				<NavLink to='/upload'><i id='upload-cloud-icon' className="fa-solid fa-cloud-arrow-up"></i></NavLink>
-				<ShoppingCart />
-				{isLoaded && sessionUser && (
+			{isLoaded && sessionUser && (
+				<div id='navbar-buttons'>
+					<NavLink to='/upload'><i id='upload-cloud-icon' className="fa-solid fa-cloud-arrow-up"></i></NavLink>
+					<ShoppingCart />
 					<ProfileButton user={sessionUser} />
-				)}
-			</div>
+				</div>
+			)}
 		</div>
 	);
 }
