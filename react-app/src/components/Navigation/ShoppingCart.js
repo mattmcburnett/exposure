@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCartItemThunk, getCartItemsThunk } from '../../store/cart';
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 function ShoppingCart() {
 
@@ -9,7 +10,6 @@ function ShoppingCart() {
     const ulRef = useRef();
     const cart = useSelector(state => state.cart)
     const sessionUser = useSelector(state => state.session.user);
-    // console.log('ul ref ---> ', ulRef.current)
 
     const openCart = () => {
         if (showCart) return;
@@ -30,32 +30,13 @@ function ShoppingCart() {
         return () => document.removeEventListener("click", closeCart);
     }, [showCart]);
 
-    // useEffect(() => {
-	// 	if (sessionUser) {
-	// 		dispatch(getCartItemsThunk(sessionUser.id))
-	// 	}
-	// }, [sessionUser])
-
-
     const ulClassName = "profile-dropdown" + (showCart ? "" : " hidden");
     const closeCart = () => setShowCart(false);
-
-    // const removeItem = (e) => {
-    //     e.preventDefault();
-    //     // dispatch(deleteCartItemThunk(itemId))
-    // }
-
-    const handleCheckout = () => {
-        //TODO
-    }
-
-
-
 
     return (
         <div>
             <button id="cart-button" onClick={openCart}>
-                <i className="fa-solid fa-cart-shopping"></i>
+                <i id="cart-icon-button" className="fa-solid fa-cart-shopping"></i>
 				<p id='items-in-cart-number'>{cart.length}</p>
             </button>
             <div id="shopping-cart-dropdown" className={ulClassName} ref={ulRef}>
@@ -87,9 +68,7 @@ function ShoppingCart() {
                         <p>Your cart is empty</p>
                     }
                 </ul>
-                <button
-                id="cart-dropdown-checkout-button">
-                    Checkout</button>
+                <NavLink to='/cart'><button onClick={closeCart} id="cart-dropdown-checkout-button">Checkout</button></NavLink>
             </div>
         </div>
     )

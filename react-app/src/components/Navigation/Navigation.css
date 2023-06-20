@@ -16,6 +16,7 @@
   padding-right: 20px;
   border-bottom: 2px solid #0c0c0c31;
   position: fixed;
+  top: 0;
 }
 
 #header-logo-and-title {
@@ -67,9 +68,15 @@
   font-size: 25px;
 }
 
+#upload-cloud-icon:hover {
+  cursor: pointer;
+  color: #cae9fa;
+
+}
+
 #shopping-cart-dropdown {
   position: absolute;
-  top: 80px;
+  top: 66px;
   right: 20px;
   background-color: white;
   border: 1px solid #555555;
@@ -152,4 +159,47 @@
 #cart-dropdown-checkout-button:hover {
   cursor: pointer;
   background-color: #419cd5;
+}
+
+#cart-button {
+  height: 25px;
+  display: flex;
+  background-color: transparent;
+  border: none;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+#cart-icon-button {
+  color: white;
+  height: 25px;
+  width: 25px;
+  font-size: 20px;
+  /* align-self: center; */
+  /* z-index: -1; */
+  display: flex;
+  align-items: center;
+}
+
+#cart-icon-button:hover {
+  cursor: pointer;
+  color: #cae9fa;
+}
+
+#items-in-cart-number{
+  background-color: #128fdc;
+  color: white;
+  z-index: 10;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-size: 12px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* text-align: center; */
+  margin: 0;
+  top: 8px;
+  right: 58px;
 }

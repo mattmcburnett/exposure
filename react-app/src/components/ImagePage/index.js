@@ -47,26 +47,37 @@ function ImagePage() {
                     <p id="single-image-title"><span className="single-image-standard-text">Title: </span>{image.title}</p>
                     <p id="single-image-caption"><span className="single-image-standard-text">Description: </span>{image.caption}</p>
                 </div>
-                <div id="single-image-cart-form-container">
-                    <p id="single-image-pricing-header"><span className="single-image-standard-text">License Pricing:</span></p>
-                    <div id="single-image-pricing-info">
-                        {image.basic_price && <p><span className="single-image-standard-text">Basic:</span>$ {image.basic_price}</p>}
-                        {image.exclusive_price && <p><span className="single-image-standard-text">Exclusive: </span>$ {image.exclusive_price}</p>}
-                        {image.royalty_rate && <p><span className="single-image-standard-text">Royalty Rate: </span>{image.royalty_rate} %</p>}
+                {currentUserId !== image.owner_id ?
+                    <div id="single-image-cart-form-container">
+                        <p id="single-image-pricing-header"><span className="single-image-standard-text">License Pricing:</span></p>
+                        <div id="single-image-pricing-info">
+                            {image.basic_price && <p><span className="single-image-standard-text">Basic:</span>$ {image.basic_price}</p>}
+                            {image.exclusive_price && <p><span className="single-image-standard-text">Exclusive: </span>$ {image.exclusive_price}</p>}
+                            {image.royalty_rate && <p><span className="single-image-standard-text">Royalty Rate: </span>{image.royalty_rate} %</p>}
+                        </div>
+                        <form id="single-image-add-cart-form" onSubmit={handleSubmit}>
+                            <label>
+                                <select value={type} onChange={(e) => setType(e.target.value)}>
+                                    <option value='basic'>Basic</option>
+                                    <option value='exclusive'>Exclusive</option>
+                                    <option value='royalty'>Royalty</option>
+                                </select>
+                            </label>
+                            <button type="submit">
+                                Add to Cart
+                            </button>
+                        </form>
                     </div>
-                    <form id="single-image-add-cart-form" onSubmit={handleSubmit}>
-                        <label>
-                            <select value={type} onChange={(e) => setType(e.target.value)}>
-                                <option value='basic'>Basic</option>
-                                <option value='exclusive'>Exclusive</option>
-                                <option value='royalty'>Royalty</option>
-                            </select>
-                        </label>
-                        <button type="submit">
-                            Add to Cart
-                        </button>
-                    </form>
-                </div>
+                    :
+                    <div id="single-image-cart-form-container">
+                        <p id="single-image-pricing-header"><span className="single-image-standard-text">License Pricing:</span></p>
+                        <div id="single-image-pricing-info">
+                            {image.basic_price && <p><span className="single-image-standard-text">Basic:</span>$ {image.basic_price}</p>}
+                            {image.exclusive_price && <p><span className="single-image-standard-text">Exclusive: </span>$ {image.exclusive_price}</p>}
+                            {image.royalty_rate && <p><span className="single-image-standard-text">Royalty Rate: </span>{image.royalty_rate} %</p>}
+                        </div>
+                    </div>
+                }
                 <div id="single-image-artist-information">
                         <i class="fa-solid fa-camera"></i>
                     <div id="single-image-artist-info">
