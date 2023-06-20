@@ -1,23 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import logo from '../../assets/android-chrome-512x512.png'
+import { getCartItemsThunk } from '../../store/cart';
+import ShoppingCart from './ShoppingCart';
 
 function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
+	const cart = useSelector(state => state.cart)
+	const dispatch = useDispatch()
+	// console.log('sessionuser ---->', sessionUser)
+
+	useEffect(() => {
+		if (sessionUser) {
+			dispatch(getCartItemsThunk(sessionUser.id))
+		}
+	}, [sessionUser])
 
 	return (
 		<div id='navbar-wrapper'>
 			<NavLink id='header-logo-and-title' exact to="/"><i class="fa-solid fa-camera"></i><p>Exposure</p></NavLink>
 			<div id='navbar-buttons'>
-				<i className="fa-solid fa-cloud-arrow-up"></i>
-				<i className="fa-solid fa-cart-shopping"></i>
-				
-					{isLoaded && sessionUser && (
-						<ProfileButton user={sessionUser} />
-					)}
+				<NavLink to='/upload'><i id='upload-cloud-icon' className="fa-solid fa-cloud-arrow-up"></i></NavLink>
+				<ShoppingCart />
+				{isLoaded && sessionUser && (
+					<ProfileButton user={sessionUser} />
+				)}
 			</div>
 		</div>
 	);
