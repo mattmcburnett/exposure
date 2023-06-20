@@ -16,7 +16,7 @@ function OpenModalButton({
   };
 
   return (
-    <button onClick={onClick}>{buttonText}</button>
+    <button id='edit-image-button' onClick={onClick}>{buttonText}</button>
   );
 }
 
