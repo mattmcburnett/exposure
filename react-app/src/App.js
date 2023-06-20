@@ -7,6 +7,7 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import UploadImagePage from "./components/UploadImagePage";
 import ImagePage from "./components/ImagePage";
+import CheckoutPage from "./components/CheckoutPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,8 +33,10 @@ function App() {
           <Route exact path="/signup">
             <SignupFormPage />
           </Route>
+          <Route exact path='/cart'>
+            <CheckoutPage />
+          </Route>
           <Route exact path='/:userId'>
-
           </Route>
           <Route exact path='/:userId/:imageId'>
             <ImagePage />

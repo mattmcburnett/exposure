@@ -42,10 +42,6 @@ export const getCartItemsThunk = (id) => async (dispatch) => {
     if (res.ok) {
         const cartItems = await res.json();
         const itemsList = Object.values(cartItems)
-        // const returnList = [];
-        // itemsList.forEach(element => {
-        //     returnList.push(element)
-        // })
         console.log('cart items after fetch in get cart items thunk = ', itemsList)
         dispatch(getCartItems(itemsList))
     } else {
