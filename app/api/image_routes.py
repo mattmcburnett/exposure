@@ -63,7 +63,7 @@ def upload_image():
 @login_required
 def get_user_images(id):
     """Query for user's uploaded imaged by user Id"""
-
+    #possible issue with to_dict?
     images = Image.query.filter(Image.owner_id == id)
     imgs_dict = images.to_dict()
     return imgs_dict

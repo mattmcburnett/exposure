@@ -69,3 +69,9 @@
 #cart-items-column ul {
     padding: 0;
 }
+
+#checkout-page-royalty-disclaimer {
+    font-size: 13px;
+    font-style: italic;
+    color: rgb(97, 96, 96);
+}
