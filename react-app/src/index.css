@@ -12,12 +12,17 @@ a {
     color: rgb(34, 34, 34);
 }
 
-/* #root {
+#root {
     height: 100%;
-    width: 100vw;
-} */
+    /* width: 100vw; */
+}
 
 body {
     padding: 0;
     margin: 0;
+
 }
+
+/* html {
+    min-height: 100vh;
+} */

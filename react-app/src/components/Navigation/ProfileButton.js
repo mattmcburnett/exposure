@@ -5,6 +5,7 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import { useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -48,8 +49,10 @@ function ProfileButton({ user }) {
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li>{user.username}</li>
-            <li>{user.email}</li>
+            <li>Hi, {user.username}!</li>
+            <li><NavLink to={`/upload`}><p>Upload Your Images</p></NavLink></li>
+            <li><NavLink to={`/${user.id}/images`}><p>My Images</p></NavLink></li>
+            <li><NavLink to={`/${user.id}/licenses`}><p>My Licenses</p></NavLink></li>
             <li>
               <button onClick={handleLogout}>Log Out</button>
             </li>

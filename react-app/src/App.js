@@ -11,6 +11,7 @@ import CheckoutPage from "./components/CheckoutPage";
 import MyImagesPage from "./components/MyImagesPage";
 import MyLicensesPage from "./components/MyLicensesPage";
 import LicensePage from "./components/LicensePage";
+import HomePage from "./components/HomePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,6 +30,9 @@ function App() {
             <h1>Uploads</h1>
             <h1>Uploads</h1>
             <UploadImagePage />
+          </Route>
+          <Route exact path="/home" >
+            <HomePage />
           </Route>
           <Route exact path="/login" >
             <LoginFormPage />
