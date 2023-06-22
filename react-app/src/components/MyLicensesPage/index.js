@@ -1,29 +1,35 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import './MyImagesPage.css'
+import './MyLicensesPage.css'
 import { useParams } from "react-router-dom";
-import { getUserImagesThunk } from "../../store/image";
 // import OpenModalButton from "../OpenModalButton";
 import { getOneArtistThunk } from "../../store/artist";
+import { Redirect } from "react-router-dom";
+import { getUserLicensesThunk } from "../../store/license";
 
 
 
-function MyImagesPage() {
+function MyLicensesPage() {
 
     const currentUser = useSelector(state => state.session.user);
     const {userId} = useParams();
     const dispatch = useDispatch()
     const pageArtist = useSelector(state => state.artist.currentArtist);
-    const artistImages = useSelector(state => state.image.userImages);
-    console.log(Object.values(artistImages))
+    const licenses = useSelector(state => state.license.userLicenses);
+    // console.log(Object.values(artistImages))
 
     useEffect(() => {
-        dispatch(getOneArtistThunk(userId))
-        dispatch(getUserImagesThunk(userId))
+        dispatch(getOneArtistThunk(currentUser.id))
+        dispatch(getUserLicensesThunk(userId))
     }, [])
 
+    console.log('current user => ', currentUser)
+    console.log('userId', userId)
 
+    // if( currentUser && userId !== currentUser.id) {
+    //     return <Redirect to='/home'/>
+    // }
 
 
     return (
@@ -34,7 +40,7 @@ function MyImagesPage() {
                     {pageArtist && <p>{pageArtist.first_name} {pageArtist.last_name}</p>}
                 </div>
                 <div className="artist-info">
-                    <p>{Object.values(artistImages).length} Image{Object.values(artistImages).length > 1 && <span>s</span>}</p>
+                    <p>{Object.values(licenses).length} License{Object.values(licenses).length > 1 && <span>s</span>}</p>
                     {pageArtist.created_at && <p>Joined {pageArtist.created_at.split(' ')[3]}</p>}
                 </div>
             </div>
@@ -47,12 +53,12 @@ function MyImagesPage() {
                 </div>
             {/* } */}
             <div className="artist-image-grid-container">
-                <p id="image-grid-header">Images</p>
+                <p id="image-grid-header">Licenses</p>
                 <div className="images-grid-wrapper">
-                        {Object.values(artistImages).length && Object.values(artistImages).map(image => (
+                        {Object.values(licenses).length && Object.values(licenses).map(license => (
                             <div className="artist-page-image-container">
-                                <NavLink className='artist-page-image-navlink' to={`/${userId}/${image.id}`}>
-                                    <img className="artist-page-grid-image" src={image.image}/>
+                                <NavLink className='artist-page-image-navlink' to={`/${userId}/licenses/${license.id}`}>
+                                    <img className="artist-page-grid-image" src={license.image_url}/>
                                 </NavLink>
                             </div>
                         ))}
@@ -62,4 +68,4 @@ function MyImagesPage() {
     )
 }
 
-export default MyImagesPage
+export default MyLicensesPage

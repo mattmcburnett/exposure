@@ -32,7 +32,7 @@ class License(db.Model):
             # 'image_owner_id': self.image_owner_id,
             'artist_first_name': self.artist_first_name,
             'artist_last_name': self. artist_last_name,
-            'image': self.image,
+            'image_url': self.image_url,
             'title': self.title,
             'caption': self.caption,
             'type': self.type,

@@ -10,13 +10,33 @@ from ..forms.create_license_form import CreateLicenseForm
 license_routes = Blueprint('licenses', __name__)
 
 
-@license_routes.route('/<int:id>/images')
+
+@license_routes.route('/<int:id>')
+@login_required
+def get_one_licenses(id):
+    """Query for a license by id"""
+    #possible issue with to_dict?
+    license = License.query.get(id)
+    license_dict = license.to_dict()
+    return license_dict
+
+
+@license_routes.route('/user/<int:id>')
 @login_required
 def get_user_licenses(id):
     """Query for purchased licenses by user id"""
     #possible issue with to_dict?
     licenses = License.query.filter(License.user_id == id)
-    licenses_dict = licenses.to_dict()
+    # print('licenses 👀👀👀👀👀👀👀👀', licenses.to_dict())
+    licenses_dict = {}
+    for license in licenses:
+        # print('license 👀👀👀👀👀👀👀👀', license.to_dict())
+        # license image needs to be dict
+        # license.image = license.image.to_dict()
+        licenses_dict[license.id] = license.to_dict()
+        # licenses_dict[license.id].image = licenses_dict[license.id].image.to_dict()
+
+    print('licenses_dict 👀👀👀👀👀👀👀👀', licenses_dict)
     return licenses_dict
 
 

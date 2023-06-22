@@ -8,6 +8,8 @@ import Navigation from "./components/Navigation";
 import UploadImagePage from "./components/UploadImagePage";
 import ImagePage from "./components/ImagePage";
 import CheckoutPage from "./components/CheckoutPage";
+import MyImagesPage from "./components/MyImagesPage";
+import MyLicensesPage from "./components/MyLicensesPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,7 +38,11 @@ function App() {
           <Route exact path='/cart'>
             <CheckoutPage />
           </Route>
-          <Route exact path='/:userId'>
+          <Route exact path='/:userId/images'>
+            <MyImagesPage />
+          </Route>
+          <Route exact path='/:userId/licenses'>
+            <MyLicensesPage />
           </Route>
           <Route exact path='/:userId/:imageId'>
             <ImagePage />
