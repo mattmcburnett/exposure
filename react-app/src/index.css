@@ -12,10 +12,10 @@ a {
     color: rgb(34, 34, 34);
 }
 
-#root {
+/* #root {
     height: 100%;
-    /* width: 100%; */
-}
+    width: 100vw;
+} */
 
 body {
     padding: 0;

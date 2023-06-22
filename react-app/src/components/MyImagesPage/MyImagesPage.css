@@ -1,0 +1,135 @@
+#images-page-wrapper {
+    margin-top: 50px;
+    height: 100%;
+    background-color: #F2F5F6;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-banner-container {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    padding-left: 80px;
+    padding-right: 80px;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-image: url('https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/straw.jpg');
+    background-size:cover;
+
+}
+
+.artist-page-navbar{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    border-bottom: 1px solid rgb(201, 200, 200);
+    /* box-sizing: border-box; */
+}
+
+.artist-page-navbar-navlinks {
+    display: flex;
+    width: 100%;
+    padding-left: 80px;
+    padding-right: 80px;
+    gap: 20px;
+}
+
+.indiv-navlinks {
+    font-size: 15px;
+    width: 110px;
+    text-align: center;
+    transition: border-bottom .05s;
+}
+
+.indiv-navlinks:hover {
+    border-bottom: 3px solid #128fdc;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.user-info p {
+    font-size: 30px;
+    color: white;
+}
+
+.user-info i {
+    font-size: 40px;
+    background-color: rgba(254, 254, 254, 0.935);
+    height: 80px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555555;
+    border-radius: 50%;
+
+}
+
+.artist-info {
+    display: flex;
+    gap: 30px;
+}
+
+.artist-info p, span {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.artist-image-grid-container {
+    /* padding-left: 80px;
+    padding-right: 80px; */
+    padding-top: 20px;
+    width: 90%;
+    align-self: center;
+}
+
+.images-grid-wrapper{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.artist-page-image-container {
+    width: auto;
+    height: 250px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    flex-wrap: wrap;
+    transition: transform .1s;
+    /* margin-bottom: 50px; */
+}
+
+.artist-page-grid-image {
+    height: 250px;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.artist-page-image-container:hover {
+    transform: scale(1.01)
+}
+
+.artist-page-image-navlink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#image-grid-header {
+    /* font-style: italic; */
+    font-size: larger;
+    color: #555555;
+}

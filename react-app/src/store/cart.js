@@ -20,7 +20,7 @@ const deleteCartItem = itemId => ({
 
 
 export const createCartItemThunk = (itemData) => async (dispatch) => {
-    console.log('cart item data', itemData.get('type'))
+    // console.log('cart item data', itemData.get('type'))
     const res = await fetch('/api/cart', {
         method: "POST",
         body: itemData
@@ -42,7 +42,7 @@ export const getCartItemsThunk = (id) => async (dispatch) => {
     if (res.ok) {
         const cartItems = await res.json();
         const itemsList = Object.values(cartItems)
-        console.log('cart items after fetch in get cart items thunk = ', itemsList)
+        // console.log('cart items after fetch in get cart items thunk = ', itemsList)
         dispatch(getCartItems(itemsList))
     } else {
         const errors = await res.json()
@@ -78,7 +78,7 @@ export default function reducer(state = initialState, action) {
             return newState
         case GET_ITEMS:
             const getItemsState = [...state]
-            console.log('action payload', action.payload)
+            // console.log('action payload', action.payload)
             const itemsList = action.payload
             itemsList.forEach(element => {
                 getItemsState.push(element)

@@ -6,7 +6,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { uploadImageThunk } from "../../store/image";
 
 
-
+// NOT IN USE
 
 function ArtistPage() {
 

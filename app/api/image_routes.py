@@ -30,7 +30,7 @@ def upload_image():
         image.filename = get_unique_filename(image.filename)
         upload = upload_file_to_s3(image)
 
-        print('upload url ===========', upload['url'])
+        # print('upload url ===========', upload['url'])
 
         if "url" not in upload:
         # if the dictionary doesn't have a url key
@@ -54,7 +54,7 @@ def upload_image():
 
         db.session.add(new_image)
         db.session.commit()
-        print('here the NEW IMAGE', new_image.to_dict())
+        # print('here the NEW IMAGE', new_image.to_dict())
         return new_image.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)},401
 
@@ -62,11 +62,16 @@ def upload_image():
 @image_routes.route('/<int:id>/images')
 @login_required
 def get_user_images(id):
-    """Query for user's uploaded imaged by user Id"""
+    """Query for user's uploaded images by user Id"""
     #possible issue with to_dict?
+
     images = Image.query.filter(Image.owner_id == id)
-    imgs_dict = images.to_dict()
-    return imgs_dict
+    imgs_list = list(images)
+    return_images = {}
+    for image in imgs_list:
+        return_images[image.id] = image.to_dict()
+    # print('return_images 👀👀👀👀👀👀👀👀', return_images)
+    return return_images
 
 
 

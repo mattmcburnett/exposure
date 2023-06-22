@@ -4,12 +4,14 @@ import session from './session';
 import image from './image';
 import cart from './cart';
 import license from './license';
+import artist from './artist';
 
 const rootReducer = combineReducers({
   session,
   image,
   cart,
-  license
+  license,
+  artist
 });
 
 

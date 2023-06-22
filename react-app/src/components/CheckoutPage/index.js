@@ -19,7 +19,7 @@ function CheckoutPage() {
         cart.forEach(item => {
             if (item.type === 'basic') total += item.image.basic_price
             if (item.type === 'exclusive') total += item.image.exclusive_price
-            console.log(total)
+            // console.log(total)
         });
         return total
     }
@@ -47,9 +47,9 @@ function CheckoutPage() {
             itemData.append('price', itemPrice);
 
             const res = await dispatch(createLicenseThunk(itemData));
-            console.log('res ---------✈️', res)
+            // console.log('res ---------✈️', res)
             //deletes not working
-            console.log('hitting res ok')
+            // console.log('hitting res ok')
             dispatch(deleteCartItemThunk(cartItem.id))
 
 

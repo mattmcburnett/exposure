@@ -1,5 +1,6 @@
 // const ADD_IMAGE = "image/ADD_IMAGE";
 const GET_IMAGE = "image/GET_IMAGE";
+const USER_IMAGES = "image/USER_IMAGES";
 
 // const addImage = (image) => ({
 //     type: ADD_IMAGE,
@@ -9,6 +10,11 @@ const GET_IMAGE = "image/GET_IMAGE";
 const getImage = image => ({
     type: GET_IMAGE,
     payload:image
+})
+
+const getUserImages = images => ({
+    type: USER_IMAGES,
+    payload: images
 })
 
 
@@ -29,8 +35,6 @@ export const getOneImageThunk = (imageId) => async (dispatch) => {
 }
 
 
-
-
 export const uploadImageThunk = (imageData) => async (dispatch) => {
 
     const response = await fetch('api/images/', {
@@ -44,6 +48,20 @@ export const uploadImageThunk = (imageData) => async (dispatch) => {
         return newImage
     } else {
         const errors = await response.json();
+        return errors;
+    }
+}
+
+
+export const getUserImagesThunk = (id) => async (dispatch) => {
+    const res = await fetch(`/api/images/${id}/images`);
+    if(res.ok) {
+        const images = await res.json();
+        console.log(images)
+        dispatch(getUserImages(images));
+        return images
+    } else {
+        const errors = await res.json();
         return errors;
     }
 }
@@ -83,6 +101,10 @@ export default function reducer(state = initialState, action) {
             const newState = {...state}
             newState.currentImage = action.payload
             return newState
+        case USER_IMAGES:
+            const allImagesState = {...state}
+            allImagesState.userImages = action.payload
+            return allImagesState
         default:
             return state
     }
