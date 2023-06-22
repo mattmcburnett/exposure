@@ -1,54 +1,51 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import './ImagePage.css'
+import './LicensePage.css'
 import { useHistory, useParams } from "react-router-dom";
-import { getOneImageThunk } from "../../store/image";
 import OpenModalButton from "../OpenModalButton";
-import UpdateImageModal from "../UpdateImageModal";
-import { createCartItemThunk } from "../../store/cart";
-import DeleteImageModal from "../DeleteImageModal";
+import { getOneLicenseThunk } from "../../store/license";
+import CancelLicenseModal from "../CancelLicenseModal";
 
-function ImagePage() {
+function LicensePage() {
 
-    const {imageId} = useParams();
+    const {licenseId} = useParams();
     const dispatch = useDispatch();
-    const image = useSelector(state => state.image.currentImage);
+    const license = useSelector(state => state.license.currentLicense);
     const currentUser = useSelector(state => state.session.user);
-    const [type, setType] = useState('basic');
     const [errors, setErrors] = useState('');
 
     const currentUserId = currentUser.id
 
     useEffect(() => {
 
-        dispatch(getOneImageThunk(imageId))
+        dispatch(getOneLicenseThunk(licenseId))
 
     }, [])
 
 
-    const handleSubmit = async (e) =>  {
-        e.preventDefault();
-        const cartItemData = new FormData();
-        cartItemData.append("type", type)
-        cartItemData.append('user_id', currentUserId)
-        cartItemData.append('image_id', image.id)
-        dispatch(createCartItemThunk(cartItemData))
-        return
-    }
+    // const handleSubmit = async (e) =>  {
+    //     e.preventDefault();
+    //     const cartItemData = new FormData();
+    //     cartItemData.append("type", type)
+    //     cartItemData.append('user_id', currentUserId)
+    //     cartItemData.append('image_id', image.id)
+    //     dispatch(createCartItemThunk(cartItemData))
+    //     return
+    // }
 
 
     return (
         <div id="single-image-page-container">
             <div id="single-image-bar">
-                { image && <img id="single-page-image" src={image.image}/>}
+                { license && <img id="single-page-image" src={license.image_url}/>}
             </div>
             <div id="single-image-info-bar">
                 <div id="single-image-information">
-                    <p id="single-image-title"><span className="single-image-standard-text">Title: </span>{image.title}</p>
-                    <p id="single-image-caption"><span className="single-image-standard-text">Description: </span>{image.caption}</p>
+                    <p id="single-image-title"><span className="single-image-standard-text">Title: </span>{license.title}</p>
+                    <p id="single-image-caption"><span className="single-image-standard-text">Description: </span>{license.caption}</p>
                 </div>
-                {currentUserId !== image.owner_id ?
+                {/* {currentUserId !== image.owner_id ?
                     <div id="single-image-cart-form-container">
                         <p id="single-image-pricing-header"><span className="single-image-standard-text">License Pricing:</span></p>
                         <div id="single-image-pricing-info">
@@ -78,22 +75,21 @@ function ImagePage() {
                             {image.royalty_rate && <p><span className="single-image-standard-text">Royalty Rate: </span>{image.royalty_rate} %</p>}
                         </div>
                     </div>
-                }
+                } */}
+                <div>
+                    <p>License Type: {license.type}</p>
+                </div>
                 <div id="single-image-artist-information">
                         <i class="fa-solid fa-camera"></i>
                     <div id="single-image-artist-info">
-                        <p id="single-image-uploaded-by" className="single-image-standard-text">Uploaded by:</p>
-                        <p id="single-image-artist-name">{image.artist_first_name} {image.artist_last_name}</p>
+                        <p id="single-image-uploaded-by" className="single-image-standard-text">Image by:</p>
+                        <p id="single-image-artist-name">{license.artist_first_name} {license.artist_last_name}</p>
                     </div>
-                    {currentUserId === image.owner_id &&
+                    {currentUserId === license.user_id && license.type === 'royalty' &&
                         <div id="single-image-edit-image-container">
                             <OpenModalButton
-                                buttonText={<div id="single-image-edit-image-text"><p id="single-image-edit-image-text">Edit Image </p><i className="fa-solid fa-pencil"></i></div>}
-                                modalComponent={<UpdateImageModal currentImage={image}/>}
-                            />
-                            <OpenModalButton
-                                buttonText={<div id="single-image-edit-image-text"><p id="single-image-edit-image-text">Delete Image </p><i className="fa-solid fa-trash"></i></div>}
-                                modalComponent={<DeleteImageModal currentImage={image}/>}
+                                buttonText={<div id="single-image-edit-image-text"><p id="single-image-edit-image-text">Cancel Royalty License </p><i className="fa-solid fa-ban"></i></div>}
+                                modalComponent={<CancelLicenseModal />}
                             />
                         </div>
                     }
@@ -104,4 +100,4 @@ function ImagePage() {
 }
 
 
-export default ImagePage
+export default LicensePage
