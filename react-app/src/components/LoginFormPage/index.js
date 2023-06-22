@@ -12,7 +12,7 @@ function LoginFormPage() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) return <Redirect to="/home" />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,6 +21,17 @@ function LoginFormPage() {
       setErrors(data);
     }
   };
+
+  const loginDemo = async (e) => {
+    const email = 'demo@aa.io';
+    const password = 'password';
+
+    const data = await dispatch(login(email, password));
+    if (data) {
+      setErrors(data);
+    }
+  }
+
 
   return (
     <div id="login-page-wrapper">
@@ -51,6 +62,7 @@ function LoginFormPage() {
           </label>
           <button id="login-page-login-button" type="submit">Log In</button>
         </form>
+        <button onClick={loginDemo} id="login-page-login-demo-button" type="submit">Log in as Demo User</button>
         <div id="login-form-text-wrapper">
           <p>Not an Exposure member?</p>
           <NavLink to='/signup'><p id="signup-reroute">Sign up here.</p></NavLink>

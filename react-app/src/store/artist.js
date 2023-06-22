@@ -29,7 +29,7 @@ export const getOneArtistThunk = (id) => async (dispatch) => {
 }
 
 export const getAllArtistsThunk = () => async (dispatch) => {
-    const res = await fetch("/api/users");
+    const res = await fetch("/api/users/");
 
     if (res.ok) {
         const artists = await res.json();

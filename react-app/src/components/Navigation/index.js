@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
@@ -7,11 +7,12 @@ import logo from '../../assets/android-chrome-512x512.png'
 import { getCartItemsThunk } from '../../store/cart';
 import ShoppingCart from './ShoppingCart';
 
+
 function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
 	const cart = useSelector(state => state.cart)
 	const dispatch = useDispatch()
-	// console.log('sessionuser ---->', sessionUser)
+	const history = useHistory()
 
 	useEffect(() => {
 		if (sessionUser) {
@@ -20,6 +21,13 @@ function Navigation({ isLoaded }){
 		}
 	}, [sessionUser])
 
+	const toLogin = () => {
+		history.push('/login')
+	}
+
+	const toSignUp = () => {
+		history.push('/signup')
+	}
 
 
 	return (
@@ -30,6 +38,12 @@ function Navigation({ isLoaded }){
 					<NavLink to='/upload'><i id='upload-cloud-icon' className="fa-solid fa-cloud-arrow-up"></i></NavLink>
 					<ShoppingCart />
 					<ProfileButton user={sessionUser} />
+				</div>
+			)}
+			{isLoaded && !sessionUser && (
+				<div id='navbar-buttons-no-user'>
+					<button onClick={toLogin} id='login-navbar-button' className='navbar-button-no-user'>Login</button>
+					<button onClick={toSignUp} id='signup-navbar-button' className='navbar-button-no-user'>Sign Up</button>
 				</div>
 			)}
 		</div>
