@@ -115,7 +115,6 @@ def remove_image(id):
     """Delete an image from a user's images"""
 
     image_to_remove = Image.query.get(id)
-    image_to_remove['owner_id'] = None
-
+    db.session.delete(image_to_remove)
     db.session.commit()
-    return 'Image had been successfully removed'
+    return {'message': 'Image had been successfully removed'}

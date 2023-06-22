@@ -1,6 +1,7 @@
 // const ADD_IMAGE = "image/ADD_IMAGE";
 const GET_IMAGE = "image/GET_IMAGE";
 const USER_IMAGES = "image/USER_IMAGES";
+const DELETE_IMAGE = "image/DELETE_IMAGE"
 
 // const addImage = (image) => ({
 //     type: ADD_IMAGE,
@@ -17,6 +18,11 @@ const getUserImages = images => ({
     payload: images
 })
 
+const deleteImage = imageId => ({
+    type: DELETE_IMAGE,
+    payload:imageId
+})
+
 
 export const getOneImageThunk = (imageId) => async (dispatch) => {
     // console.log('image id in thunk', imageId)
@@ -29,7 +35,7 @@ export const getOneImageThunk = (imageId) => async (dispatch) => {
         dispatch(getImage(image));
         return image;
     } else {
-        const errors = await res.json();
+        const errors = await res.json()
         return errors;
     }
 }
@@ -63,6 +69,20 @@ export const getUserImagesThunk = (id) => async (dispatch) => {
     } else {
         const errors = await res.json();
         return errors;
+    }
+}
+
+export const deleteImageThunk = (imageId) => async (dispatch) => {
+    const res = await fetch(`/api/images/${imageId}`, {
+        method: "DELETE"
+    });
+
+    if (res.ok) {
+        const message = await res.json();
+        dispatch(deleteImage(imageId))
+    } else {
+        const errors = await res.json()
+        return errors
     }
 }
 
@@ -105,6 +125,9 @@ export default function reducer(state = initialState, action) {
             const allImagesState = {...state}
             allImagesState.userImages = action.payload
             return allImagesState
+        case DELETE_IMAGE:
+            const deleteState = {...state}
+            return deleteState
         default:
             return state
     }

@@ -60,7 +60,7 @@ function ShoppingCart() {
                                     onClick={() => dispatch(deleteCartItemThunk(cartItem.id))}
                                     className="cart-dropdown-trash"
                                 >
-                                    <i class="fa-solid fa-trash"></i>
+                                    <i className="fa-solid fa-trash"></i>
                                 </button>
                             </div>
                         ))

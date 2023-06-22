@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import './MyImagesPage.css'
 import { useParams } from "react-router-dom";
 import { getUserImagesThunk } from "../../store/image";
-// import OpenModalButton from "../OpenModalButton";
 import { getOneArtistThunk } from "../../store/artist";
 
 
@@ -16,14 +15,11 @@ function MyImagesPage() {
     const dispatch = useDispatch()
     const pageArtist = useSelector(state => state.artist.currentArtist);
     const artistImages = useSelector(state => state.image.userImages);
-    console.log(Object.values(artistImages))
 
     useEffect(() => {
         dispatch(getOneArtistThunk(userId))
         dispatch(getUserImagesThunk(userId))
     }, [])
-
-
 
 
     return (
@@ -38,19 +34,19 @@ function MyImagesPage() {
                     {pageArtist.created_at && <p>Joined {pageArtist.created_at.split(' ')[3]}</p>}
                 </div>
             </div>
-            {/* {pageArtist.id === currentUser.id && */}
+            {pageArtist.id === currentUser.id &&
                 <div className="artist-page-navbar">
                     <div className="artist-page-navbar-navlinks">
                         <NavLink id='my-images-page-border-bottom' className='indiv-navlinks' to={`/${userId}/images`}><p>My Images</p></NavLink>
                         <NavLink className='indiv-navlinks' to={`/${userId}/licenses`}><p>My Licenses</p></NavLink>
                     </div>
                 </div>
-            {/* } */}
+            }
             <div className="artist-image-grid-container">
                 <p id="image-grid-header">Images</p>
                 <div className="images-grid-wrapper">
                         {Object.values(artistImages).length && Object.values(artistImages).map(image => (
-                            <div className="artist-page-image-container">
+                            <div key={image.id} className="artist-page-image-container">
                                 <NavLink className='artist-page-image-navlink' to={`/${userId}/${image.id}`}>
                                     <img className="artist-page-grid-image" src={image.image}/>
                                 </NavLink>

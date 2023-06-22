@@ -80,4 +80,4 @@ def delete_license(id):
     license_to_delete = License.query.get(id)
     db.session.delete(license_to_delete)
     db.session.commit()
-    return 'License has been deleted'
+    return {'message': 'License has been deleted'}
