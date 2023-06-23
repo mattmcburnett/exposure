@@ -33,7 +33,7 @@
 #signup-page-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     /* justify-content: center; */
     width: 100%;
 }
@@ -48,6 +48,7 @@
 #signup-page-form i {
     font-size: 30px;
     color: #555555;
+    align-self: center
 }
 
 #signup-page-background {
@@ -59,7 +60,7 @@
 }
 
 #signup-page-form label {
-    margin-top: 15px;
+    margin-bottom: 5px;
     width: 100%;
 }
 
@@ -117,4 +118,12 @@
     background-color: white;
     border-radius: 5px;
     opacity: 70%;
+}
+
+
+.signup-errors {
+    font-size: 12px;
+    height: 10px;
+    margin-bottom: 5px;
+    color: red;
 }

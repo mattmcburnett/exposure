@@ -32,7 +32,15 @@ function Navigation({ isLoaded }){
 
 	return (
 		<div id='navbar-wrapper'>
-			<NavLink id='header-logo-and-title' exact to="/"><i class="fa-solid fa-camera"></i><p>Exposure</p></NavLink>
+			<div id='navbar-left-container'>
+				<NavLink id='header-logo-and-title' exact to="/"><i class="fa-solid fa-camera"></i><p>Exposure</p></NavLink>
+
+				{isLoaded && sessionUser && (
+					<div id='home-link-wrapper'>
+						<NavLink id='navbar-home-link' to='/home'>Home</NavLink>
+					</div>
+				)}
+			</div>
 			{isLoaded && sessionUser && (
 				<div id='navbar-buttons'>
 					<NavLink to='/upload'><i id='upload-cloud-icon' className="fa-solid fa-cloud-arrow-up"></i></NavLink>

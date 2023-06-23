@@ -26,9 +26,6 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route path='/upload'>
-            <h1>Uploads</h1>
-            <h1>Uploads</h1>
-            <h1>Uploads</h1>
             <UploadImagePage />
           </Route>
           <Route exact path="/home" >

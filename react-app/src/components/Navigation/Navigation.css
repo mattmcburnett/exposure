@@ -230,3 +230,26 @@
   color: rgb(116, 114, 114);
   cursor: pointer;
 }
+
+#home-link-wrapper {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+
+}
+
+#navbar-home-link{
+  color: white;
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+#navbar-home-link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#navbar-left-container {
+  display: flex;
+  gap: 40px;
+}
