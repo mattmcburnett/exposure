@@ -13,53 +13,62 @@ function SignupFormPage() {
   const [firstName, setFirstName] =useState("");
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState("")
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState({});
+  const [hasSubmitted, setHasSubmitted] = useState(false)
 
 
-  // useEffect(() => {
-  //   setErrors({})
-
-	// 	if (username.length > 30) errors.username = "Username must be less than 30 characters"
-  //   if (username.length < 5) errors.user = "Username msut be more than 5 characters"
-	// 	if (password.length > 30) errors.password = "Password must be less than 30 characters"
-  //   if (password.length < 6) errors.password = "Password must be 6 or more characters"
-	// 	if (email.length > 40) errors.email = "Email must be less than 40 characters"
-  //   if (firstName.length > 30) errors.firstName = 'First name must be less than 30 characters'
-  //   if (lastName.length > 30) errors.lastName = 'Last name must be less than 30 characters'
-  //   if (age < 13) errors.age = 'You must be over 13 to use Exposure'
-  //   if (age > 120) errors.age = "Seems unlikely you're that old..."
-  //   console.log(errors.firstName)
-
-	// 	setErrors(errors)
-
-
-	// }, [username, password, email, firstName, lastName, age])
-  if (sessionUser) return <Redirect to="/" />;
+  useEffect(() => {
+    let newErrors = {}
+		if (username.length > 30) newErrors.username = "Username must be less than 30 characters"
+    if (username.length < 5) newErrors.user = "Username must be more than 5 characters"
+		if (password.length > 30) newErrors.password = "Password must be less than 30 characters"
+    if (password.length < 6) newErrors.password = "Password must be 6 or more characters"
+		if (email.length > 40) newErrors.email = "Email must be less than 40 characters"
+    //big ol yikes on this email validation. just learn regex man...
+    if(email) {
+      if (!(email.split('').includes('@'))) {
+        newErrors.email = "Please enter a valid email address"
+      }
+      if(email.split('').includes('@')) {
+        if(!(email.split('@')[1].includes('.'))) newErrors.email = "Please enter a valid email address"
+        if (email.split('@')[1].includes('.')) {
+          if (!(email.split('@')[1].split('.')[0]) || !(email.split('@')[1].split('.')[1])) newErrors.email = "Please enter a valid email address"
+        }
+      }
+    }
+    if (firstName.length > 30) newErrors.firstName = 'First name must be less than 30 characters'
+    if (lastName.length > 30) newErrors.lastName = 'Last name must be less than 30 characters'
+    if (firstName.length < 1) newErrors.firstName = 'Please enter a first name'
+    if (!lastName) newErrors.lastName = 'Please enter a last name'
+    if (age < 13) newErrors.age = 'You must be over 13 to use Exposure'
+    if (age > 120) newErrors.age = "Seems unlikely you're that old..."
+		setErrors(newErrors)
+	}, [username, password, email, firstName, lastName, age])
+  if (sessionUser) return <Redirect to="/home" />;
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-        const data = await dispatch(signUp(username, email, password, firstName, lastName, age));
-        if (data) {
-          setErrors(data)
-        }
-
-
+    setHasSubmitted(true);
+    if (Object.values(errors).length) return;
+    const data = await dispatch(signUp(username, email, password, firstName, lastName, age));
+    if (data) {
+      setErrors(data)
+    }
   };
+  // console.log(errors)
 
   return (
     <div id="signup-page-wrapper">
       <div id="signup-page-container">
         <div id="signup-page-form-container">
-
           <form id="signup-page-form" onSubmit={handleSubmit}>
             <i class="fa-solid fa-camera"></i>
             <h1>Sign up for Exposure</h1>
-            <ul>
+            {/* <ul>
               {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-                {/* {errors.firstName && <p>{errors.firstName}</p>} */}
+            </ul> */}
+                {hasSubmitted === true && errors.firstName ? <p className="signup-errors">{errors.firstName}</p> : <div className="signup-errors"></div>}
               <label>
                 <input
                   type="text"
@@ -69,7 +78,7 @@ function SignupFormPage() {
                   placeholder="First Name"
                 />
               </label>
-              {/* {errors.lastName ? <p>{errors.lastName}</p> : <div></div>} */}
+              {hasSubmitted === true && errors.lastName ? <p className="signup-errors">{errors.lastName}</p> : <div className="signup-errors"></div>}
               <label>
                 <input
                   type="text"
@@ -79,6 +88,7 @@ function SignupFormPage() {
                   placeholder="Last Name"
                 />
               </label>
+              {hasSubmitted === true && errors.email ? <p className="signup-errors">{errors.email}</p> : <div className="signup-errors"></div>}
               <label>
                 <input
                   type="text"
@@ -88,6 +98,7 @@ function SignupFormPage() {
                   placeholder="Email"
                 />
             </label>
+            {hasSubmitted === true && errors.username ? <p className="signup-errors">{errors.username}</p> : <div className="signup-errors"></div>}
             <label>
               <input
                 type="text"
@@ -97,6 +108,7 @@ function SignupFormPage() {
                 placeholder="Username"
               />
             </label>
+            {hasSubmitted === true && errors.age ? <p className="signup-errors">{errors.age}</p> : <div className="signup-errors"></div>}
             <label>
               <input
                 type="number"
@@ -104,8 +116,10 @@ function SignupFormPage() {
                 onChange={(e) => setAge(e.target.value)}
                 required
                 placeholder="Your Age"
+                // min={13}
               />
             </label>
+            {hasSubmitted === true && errors.password ? <p className="signup-errors">{errors.password}</p> : <div className="signup-errors"></div>}
             <label>
               <input
                 type="password"
@@ -113,6 +127,7 @@ function SignupFormPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 placeholder="Password"
+                // minLength={6}
               />
             </label>
 
