@@ -14,7 +14,9 @@ image_routes = Blueprint('images', __name__)
 def get_all_images():
     """Get all images that have an owner id"""
     images = Image.query.filter(Image.owner_id != None)
-    imgs_dict = images.to_dict()
+    imgs_dict = {}
+    for image in images:
+        imgs_dict[image.owner_id] = image.to_dict()
     return imgs_dict
 
 

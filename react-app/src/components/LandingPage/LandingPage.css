@@ -1,0 +1,63 @@
+#landing-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    /* background-image: url('https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/qingbao-meng-01_igFr7hd4-unsplash.jpg');
+    background-position: cover; */
+    align-items: center;
+    justify-content: center;
+}
+
+#landing-page-content-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#landing-page-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#landing-page-text h1{
+    color: white;
+    font-size: 45px;
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
+
+#landing-page-text h2{
+    color: white;
+    font-weight: lighter;
+    margin-bottom: 40px;
+}
+
+#start-exploring-button{
+    height: 50px;
+    width: 175px;
+    font-size: 18px;
+    font-weight:bold;
+    border: none;
+    border-radius: 5px;
+}
+
+#start-exploring-button:hover {
+    color: gray;
+    cursor: pointer;
+}
+
+#sign-up-free-button{
+    height: 50px;
+    width: 175px;
+    font-size: 18px;
+    font-weight:bold;
+    border: none;
+    border-radius: 5px;
+}
+
+#sign-up-free-button:hover {
+    color: gray;
+    cursor: pointer;
+}
