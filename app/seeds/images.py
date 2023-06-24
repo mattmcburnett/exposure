@@ -10,7 +10,7 @@ def seed_images():
         caption='Behold the radiant beauty of the eye of a flower',
         owner_id = 1,
         artist_first_name = 'Demo',
-        artis_last_name = 'User',
+        artist_last_name = 'User',
         basic_price = 15,
         exclusive_price = 200,
         royalty_rate = 3
@@ -21,7 +21,7 @@ def seed_images():
         caption='Capturing the harmonious coexistence of a lush forest and a crystal-blue lake',
         owner_id = 1,
         artist_first_name = 'Demo',
-        artis_last_name = 'User',
+        artist_last_name = 'User',
         basic_price = 20,
         exclusive_price = 250,
         royalty_rate = 4
@@ -32,7 +32,7 @@ def seed_images():
         caption='Peer through the towering sentinels of the forest',
         owner_id = 1,
         artist_first_name = 'Demo',
-        artis_last_name = 'User',
+        artist_last_name = 'User',
         basic_price = 10,
         exclusive_price = 100,
         royalty_rate = 2
@@ -43,7 +43,7 @@ def seed_images():
         caption='A lush sea of ferns unfolds in a mesmerizing display of vibrant green',
         owner_id = 1,
         artist_first_name = 'Demo',
-        artis_last_name = 'User',
+        artist_last_name = 'User',
         basic_price = 15,
         exclusive_price = 200,
         royalty_rate = 3
@@ -54,7 +54,7 @@ def seed_images():
         caption='The warm hues of the fading daylight illuminate the peaceful waters',
         owner_id = 1,
         artist_first_name = 'Demo',
-        artis_last_name = 'User',
+        artist_last_name = 'User',
         basic_price = 20,
         exclusive_price = 250,
         royalty_rate = 3
@@ -65,7 +65,7 @@ def seed_images():
         caption='A meandering stream carves its way through a majestic mountain valley',
         owner_id = 1,
         artist_first_name = 'Demo',
-        artis_last_name = 'User',
+        artist_last_name = 'User',
         basic_price = 40,
         exclusive_price = 500,
         royalty_rate = 6
@@ -76,7 +76,7 @@ def seed_images():
         caption='Ethereal enchantment as a dense blanket of fog envelops a serene forest',
         owner_id = 1,
         artist_first_name = 'Demo',
-        artis_last_name = 'User',
+        artist_last_name = 'User',
         basic_price = 15,
         exclusive_price = 200,
         royalty_rate = 2
@@ -87,7 +87,7 @@ def seed_images():
         caption=' An extraordinary geological wonder, the walls rise high and narrow, painted with an array of violet hues',
         owner_id = 1,
         artist_first_name = 'Demo',
-        artis_last_name = 'User',
+        artist_last_name = 'User',
         basic_price = 30,
         exclusive_price = 300,
         royalty_rate = 3
@@ -98,7 +98,7 @@ def seed_images():
         caption='Follow the meandering path that leads you deeper into the heart of a serene forest',
         owner_id = 1,
         artist_first_name = 'Demo',
-        artis_last_name = 'User',
+        artist_last_name = 'User',
         basic_price = 15,
         exclusive_price = 200,
         royalty_rate = 3
@@ -109,7 +109,7 @@ def seed_images():
         caption='The weathered steps rise, seemingly leading to an unknown realm shrouded in mystery',
         owner_id = 1,
         artist_first_name = 'Demo',
-        artis_last_name = 'User',
+        artist_last_name = 'User',
         basic_price = 10,
         exclusive_price = 100,
         royalty_rate = 1
@@ -133,7 +133,7 @@ def seed_images():
         caption='Lofty heights reaching into the heavens',
         owner_id = 2,
         artist_first_name = 'Marnie',
-        artis_last_name = 'Alpin',
+        artist_last_name = 'Alpin',
         basic_price = 10,
         exclusive_price = 100,
         royalty_rate = 1
@@ -144,7 +144,7 @@ def seed_images():
         caption="Standing resolute amidst a winter's embrace",
         owner_id = 2,
         artist_first_name = 'Marnie',
-        artis_last_name = 'Alpin',
+        artist_last_name = 'Alpin',
         basic_price = 20,
         exclusive_price = 200,
         royalty_rate = 2
@@ -155,7 +155,7 @@ def seed_images():
         caption='Verdant Heights',
         owner_id = 2,
         artist_first_name = 'Marnie',
-        artis_last_name = 'Alpin',
+        artist_last_name = 'Alpin',
         basic_price = 30,
         exclusive_price = 300,
         royalty_rate = 3
@@ -166,7 +166,7 @@ def seed_images():
         caption= "Peer into the vast valley below, where nature's intricate tapestry reveals itself.",
         owner_id = 2,
         artist_first_name = 'Marnie',
-        artis_last_name = 'Alpin',
+        artist_last_name = 'Alpin',
         basic_price = 30,
         exclusive_price = 300,
         royalty_rate = 3
@@ -177,7 +177,7 @@ def seed_images():
         caption='A resilient tree fence stands as a silent guardian of the landscape',
         owner_id = 2,
         artist_first_name = 'Marnie',
-        artis_last_name = 'Alpin',
+        artist_last_name = 'Alpin',
         basic_price = 40,
         exclusive_price = 400,
         royalty_rate = 4
@@ -188,7 +188,7 @@ def seed_images():
         caption='Evoking solitude and introspection',
         owner_id = 2,
         artist_first_name = 'Marnie',
-        artis_last_name = 'Alpin',
+        artist_last_name = 'Alpin',
         basic_price = 50,
         exclusive_price = 550,
         royalty_rate = 4
@@ -199,7 +199,7 @@ def seed_images():
         caption='The first rays of the morning sun grace the mountain peak with their golden touch',
         owner_id = 2,
         artist_first_name = 'Marnie',
-        artis_last_name = 'Alpin',
+        artist_last_name = 'Alpin',
         basic_price = 25,
         exclusive_price = 125,
         royalty_rate = 2
@@ -210,7 +210,7 @@ def seed_images():
         caption='The enchanting transformation as winter spreads its icy touch across the forest',
         owner_id = 2,
         artist_first_name = 'Marnie',
-        artis_last_name = 'Alpin',
+        artist_last_name = 'Alpin',
         basic_price = 20,
         exclusive_price = 300,
         royalty_rate = 3
@@ -231,7 +231,7 @@ def seed_images():
         caption='The summer rain delicately drapes lush leaves with glistening droplets',
         owner_id = 3,
         artist_first_name = 'Meredith',
-        artis_last_name = 'Reeve',
+        artist_last_name = 'Reeve',
         basic_price = 20,
         exclusive_price = 300,
         royalty_rate = 3
@@ -242,7 +242,7 @@ def seed_images():
         caption='A solitary tree stands as a resilient sentinel',
         owner_id = 3,
         artist_first_name = 'Meredith',
-        artis_last_name = 'Reeve',
+        artist_last_name = 'Reeve',
         basic_price = 20,
         exclusive_price = 300,
         royalty_rate = 3
@@ -253,7 +253,7 @@ def seed_images():
         caption='Vibrant field of wildflowers carpets the land, with majestic mountains standing tall in the background',
         owner_id = 3,
         artist_first_name = 'Meredith',
-        artis_last_name = 'Reeve',
+        artist_last_name = 'Reeve',
         basic_price = 20,
         exclusive_price = 300,
         royalty_rate = 3
@@ -264,7 +264,7 @@ def seed_images():
         caption='Rolling lush green hills, extending as far as the eye can wander',
         owner_id = 3,
         artist_first_name = 'Meredith',
-        artis_last_name = 'Reeve',
+        artist_last_name = 'Reeve',
         basic_price = 20,
         exclusive_price = 300,
         royalty_rate = 3
@@ -275,7 +275,7 @@ def seed_images():
         caption= "Discover a captivating juxtaposition in nature's design",
         owner_id = 3,
         artist_first_name = 'Meredith',
-        artis_last_name = 'Reeve',
+        artist_last_name = 'Reeve',
         basic_price = 20,
         exclusive_price = 300,
         royalty_rate = 3
@@ -293,7 +293,7 @@ def seed_images():
         caption= "Immerse yourself in the mesmerizing hues of a celestial masterpiece",
         owner_id = 4,
         artist_first_name = 'Saira',
-        artis_last_name = 'Frazier',
+        artist_last_name = 'Frazier',
         basic_price = 30,
         exclusive_price = 200,
         royalty_rate = 6
@@ -304,7 +304,7 @@ def seed_images():
         caption= "Gaze up in awe as the night sky becomes a celestial theater",
         owner_id = 4,
         artist_first_name = 'Saira',
-        artis_last_name = 'Frazier',
+        artist_last_name = 'Frazier',
         basic_price = 30,
         exclusive_price = 200,
         royalty_rate = 6
@@ -315,7 +315,7 @@ def seed_images():
         caption= "Mesmerizing blue galaxy nestled in the vastness of space",
         owner_id = 4,
         artist_first_name = 'Saira',
-        artis_last_name = 'Frazier',
+        artist_last_name = 'Frazier',
         basic_price = 30,
         exclusive_price = 200,
         royalty_rate = 6
@@ -326,7 +326,7 @@ def seed_images():
         caption= "Venture into the depths of the cosmos and behold the awe-inspiring sight of a distant galaxy",
         owner_id = 4,
         artist_first_name = 'Saira',
-        artis_last_name = 'Frazier',
+        artist_last_name = 'Frazier',
         basic_price = 30,
         exclusive_price = 200,
         royalty_rate = 6
@@ -337,7 +337,7 @@ def seed_images():
         caption= "A shooting star streaks across the canvas of a breathtaking sunset",
         owner_id = 4,
         artist_first_name = 'Saira',
-        artis_last_name = 'Frazier',
+        artist_last_name = 'Frazier',
         basic_price = 30,
         exclusive_price = 200,
         royalty_rate = 6
@@ -355,7 +355,7 @@ def seed_images():
         caption= "Step back in time and embrace the nostalgic allure",
         owner_id = 5,
         artist_first_name = 'Leighton',
-        artis_last_name = 'Wiley',
+        artist_last_name = 'Wiley',
         basic_price = 15,
         exclusive_price = 150,
         royalty_rate = 2
@@ -366,7 +366,7 @@ def seed_images():
         caption= "Under the gentle glow of green lights",
         owner_id = 5,
         artist_first_name = 'Leighton',
-        artis_last_name = 'Wiley',
+        artist_last_name = 'Wiley',
         basic_price = 15,
         exclusive_price = 150,
         royalty_rate = 2
@@ -377,7 +377,7 @@ def seed_images():
         caption= "Silhouetted figures embark on a rhythmic journey along the city sidewalk",
         owner_id = 5,
         artist_first_name = 'Leighton',
-        artis_last_name = 'Wiley',
+        artist_last_name = 'Wiley',
         basic_price = 15,
         exclusive_price = 150,
         royalty_rate = 2
@@ -388,7 +388,7 @@ def seed_images():
         caption= "A celebration of people, of love",
         owner_id = 5,
         artist_first_name = 'Leighton',
-        artis_last_name = 'Wiley',
+        artist_last_name = 'Wiley',
         basic_price = 15,
         exclusive_price = 150,
         royalty_rate = 2
@@ -399,7 +399,7 @@ def seed_images():
         caption= "Hand in hand, they traverse the bustling urban landscape, lost in their own world",
         owner_id = 5,
         artist_first_name = 'Leighton',
-        artis_last_name = 'Wiley',
+        artist_last_name = 'Wiley',
         basic_price = 15,
         exclusive_price = 150,
         royalty_rate = 2
@@ -417,7 +417,7 @@ def seed_images():
         caption= "Its delicate paper folds and intricate design create an enchanting focal point",
         owner_id = 6,
         artist_first_name = 'Els',
-        artis_last_name = 'Hagen',
+        artist_last_name = 'Hagen',
         basic_price = 15,
         exclusive_price = 150,
         royalty_rate = 2
@@ -428,7 +428,7 @@ def seed_images():
         caption= "A captivating display of artistic expression",
         owner_id = 6,
         artist_first_name = 'Els',
-        artis_last_name = 'Hagen',
+        artist_last_name = 'Hagen',
         basic_price = 15,
         exclusive_price = 150,
         royalty_rate = 2
@@ -439,7 +439,7 @@ def seed_images():
         caption= "Dedicated hands lovingly tend to the needs of a treasured piano",
         owner_id = 6,
         artist_first_name = 'Els',
-        artis_last_name = 'Hagen',
+        artist_last_name = 'Hagen',
         basic_price = 15,
         exclusive_price = 150,
         royalty_rate = 2
@@ -450,7 +450,7 @@ def seed_images():
         caption= "A magical scene unfolds as a mesmerizing neon tree illuminates the darkness with its radiant glow",
         owner_id = 6,
         artist_first_name = 'Els',
-        artis_last_name = 'Hagen',
+        artist_last_name = 'Hagen',
         basic_price = 15,
         exclusive_price = 150,
         royalty_rate = 2
@@ -461,7 +461,7 @@ def seed_images():
         caption= "Intricate artistry as delicate threads weave together to create a stunning floral display",
         owner_id = 6,
         artist_first_name = 'Els',
-        artis_last_name = 'Hagen',
+        artist_last_name = 'Hagen',
         basic_price = 15,
         exclusive_price = 150,
         royalty_rate = 2
@@ -480,7 +480,7 @@ def seed_images():
         caption= "twisting white lights create a mesmerizing dance of ethereal spirals",
         owner_id = 7,
         artist_first_name = 'Celia',
-        artis_last_name = 'Torrejon',
+        artist_last_name = 'Torrejon',
         basic_price = 10,
         exclusive_price = 250,
         royalty_rate = 3
@@ -491,7 +491,7 @@ def seed_images():
         caption= "Captivating dance as vibrant red flowers spin and twirl",
         owner_id = 7,
         artist_first_name = 'Celia',
-        artis_last_name = 'Torrejon',
+        artist_last_name = 'Torrejon',
         basic_price = 10,
         exclusive_price = 250,
         royalty_rate = 3
@@ -502,7 +502,7 @@ def seed_images():
         caption= "blue flowers shift and transform, creating a captivating display of ever-changing elegance",
         owner_id = 7,
         artist_first_name = 'Celia',
-        artis_last_name = 'Torrejon',
+        artist_last_name = 'Torrejon',
         basic_price = 10,
         exclusive_price = 250,
         royalty_rate = 3
@@ -513,7 +513,7 @@ def seed_images():
         caption= "vibrant trails of multicolor illumination",
         owner_id = 7,
         artist_first_name = 'Celia',
-        artis_last_name = 'Torrejon',
+        artist_last_name = 'Torrejon',
         basic_price = 10,
         exclusive_price = 250,
         royalty_rate = 3
@@ -524,7 +524,7 @@ def seed_images():
         caption= "captivating shadows, creating an enigmatic display of visual artistry",
         owner_id = 7,
         artist_first_name = 'Celia',
-        artis_last_name = 'Torrejon',
+        artist_last_name = 'Torrejon',
         basic_price = 10,
         exclusive_price = 250,
         royalty_rate = 3
@@ -542,7 +542,7 @@ def seed_images():
         caption= "piercing eyes hold a glimpse into the wild allure of nature's cunning beauty.",
         owner_id = 8,
         artist_first_name = 'Niels',
-        artis_last_name = 'Wilde',
+        artist_last_name = 'Wilde',
         basic_price = 25,
         exclusive_price = 500,
         royalty_rate = 4
@@ -553,7 +553,7 @@ def seed_images():
         caption= "A powerful connection to the untamed wilderness and a reminder of nature's unwavering majesty",
         owner_id = 8,
         artist_first_name = 'Niels',
-        artis_last_name = 'Wilde',
+        artist_last_name = 'Wilde',
         basic_price = 25,
         exclusive_price = 500,
         royalty_rate = 4
@@ -564,7 +564,7 @@ def seed_images():
         caption= "Discover a harmonious connection between two worlds",
         owner_id = 8,
         artist_first_name = 'Niels',
-        artis_last_name = 'Wilde',
+        artist_last_name = 'Wilde',
         basic_price = 25,
         exclusive_price = 500,
         royalty_rate = 4
@@ -575,7 +575,7 @@ def seed_images():
         caption= "Unveils the essence of fierce elegance",
         owner_id = 8,
         artist_first_name = 'Niels',
-        artis_last_name = 'Wilde',
+        artist_last_name = 'Wilde',
         basic_price = 25,
         exclusive_price = 500,
         royalty_rate = 4
@@ -586,7 +586,7 @@ def seed_images():
         caption= "Displays a potent combination of strength and anticipation",
         owner_id = 8,
         artist_first_name = 'Niels',
-        artis_last_name = 'Wilde',
+        artist_last_name = 'Wilde',
         basic_price = 25,
         exclusive_price = 500,
         royalty_rate = 4
@@ -604,7 +604,7 @@ def seed_images():
         caption= "Underwater bubbles dance and shimmer in the vast expanse of the ocean",
         owner_id = 9,
         artist_first_name = 'Nor',
-        artis_last_name = 'Radzi',
+        artist_last_name = 'Radzi',
         basic_price = 30,
         exclusive_price = 400,
         royalty_rate = 5
@@ -615,7 +615,7 @@ def seed_images():
         caption= "Whimsical charm of a tiny beach spray",
         owner_id = 9,
         artist_first_name = 'Nor',
-        artis_last_name = 'Radzi',
+        artist_last_name = 'Radzi',
         basic_price = 30,
         exclusive_price = 400,
         royalty_rate = 5
@@ -626,7 +626,7 @@ def seed_images():
         caption= "The rhythmic dance of gentle ocean ripples",
         owner_id = 9,
         artist_first_name = 'Nor',
-        artis_last_name = 'Radzi',
+        artist_last_name = 'Radzi',
         basic_price = 30,
         exclusive_price = 400,
         royalty_rate = 5
@@ -637,7 +637,7 @@ def seed_images():
         caption= "Harmonious school of fish darts through the ocean with synchronized precision",
         owner_id = 9,
         artist_first_name = 'Nor',
-        artis_last_name = 'Radzi',
+        artist_last_name = 'Radzi',
         basic_price = 30,
         exclusive_price = 400,
         royalty_rate = 5
@@ -648,7 +648,7 @@ def seed_images():
         caption= "Sleek shell and gentle movements, the sea turtle embodies a sense of ancient wisdom and serenity",
         owner_id = 9,
         artist_first_name = 'Nor',
-        artis_last_name = 'Radzi',
+        artist_last_name = 'Radzi',
         basic_price = 30,
         exclusive_price = 400,
         royalty_rate = 5
@@ -666,7 +666,7 @@ def seed_images():
         caption= "Bathed in the warm glow of crimson hues",
         owner_id = 10,
         artist_first_name = 'Bernd',
-        artis_last_name = 'Keller',
+        artist_last_name = 'Keller',
         basic_price = 15,
         exclusive_price = 200,
         royalty_rate = 2
@@ -677,7 +677,7 @@ def seed_images():
         caption= "A world of electric energy",
         owner_id = 10,
         artist_first_name = 'Bernd',
-        artis_last_name = 'Keller',
+        artist_last_name = 'Keller',
         basic_price = 15,
         exclusive_price = 200,
         royalty_rate = 2
@@ -688,7 +688,7 @@ def seed_images():
         caption= "Enter a realm of introspection",
         owner_id = 10,
         artist_first_name = 'Bernd',
-        artis_last_name = 'Keller',
+        artist_last_name = 'Keller',
         basic_price = 15,
         exclusive_price = 200,
         royalty_rate = 2
@@ -699,7 +699,7 @@ def seed_images():
         caption= "Witness the sky come alive in a fiery display",
         owner_id = 10,
         artist_first_name = 'Bernd',
-        artis_last_name = 'Keller',
+        artist_last_name = 'Keller',
         basic_price = 15,
         exclusive_price = 200,
         royalty_rate = 2
@@ -710,7 +710,7 @@ def seed_images():
         caption= "he neon lights, vibrant and inviting, cast a serene glow upon the vacant space",
         owner_id = 10,
         artist_first_name = 'Bernd',
-        artis_last_name = 'Keller',
+        artist_last_name = 'Keller',
         basic_price = 15,
         exclusive_price = 200,
         royalty_rate = 2
