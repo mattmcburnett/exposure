@@ -12,6 +12,7 @@ import MyImagesPage from "./components/MyImagesPage";
 import MyLicensesPage from "./components/MyLicensesPage";
 import LicensePage from "./components/LicensePage";
 import HomePage from "./components/HomePage";
+import LandingPage from "./components/LandingPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path='/'>
+            <LandingPage />
+          </Route>
           <Route path='/upload'>
             <UploadImagePage />
           </Route>

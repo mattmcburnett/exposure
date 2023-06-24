@@ -12,33 +12,38 @@ function UpdateImageModal() {
     const currentImage = useSelector(state => state.image.currentImage)
     const [title, setTitle] = useState(currentImage.title);
     const [caption, setCaption] = useState(currentImage.caption);
-    const [basicPrice, setBasicPrice] = useState(currentImage.basic_price);
-    const [exclusivePrice, setExclusivePrice] = useState(currentImage.exclusive_price);
-    const [royaltyRate, setRoyaltyRate] = useState(currentImage.royalty_rate);
+    let [basicPrice, setBasicPrice] = useState(currentImage.basic_price);
+    let [exclusivePrice, setExclusivePrice] = useState(currentImage.exclusive_price);
+    let [royaltyRate, setRoyaltyRate] = useState(currentImage.royalty_rate);
     const [errors, setErrors] = useState({});
     const dispatch = useDispatch();
     const { closeModal } = useModal();
+    const [hasSubmitted, setHasSubmitted] = useState(false)
 
-    // useEffect(() => {
-    //     const newErrors = {}
+    useEffect(() => {
+        const newErrors = {}
 
-    //     // if(title.length > 40) newErrors.title = 'Title must be less than 40 characters';
-    //     // if(title.length === 0) newErrors.title = 'Image must have a title';
-    //     // if(caption.length > 255) newErrors.caption = 'Caption must be less than 255 characters';
-    //     // if(!basicPrice && !exclusivePrice && !royaltyRate) newErrors.price = 'Image must have pricing';
-    //     // if(basicPrice < 0 || exclusivePrice < 0 || royaltyRate < 0) newErrors.price = 'Please enter valid pricing options'
-
-    //     setErrors(newErrors);
-    // }, [title, caption, basicPrice, exclusivePrice, royaltyRate])
+        if(title.length > 40) newErrors.title = 'Title must be less than 40 characters';
+        if(title.length === 0) newErrors.title = 'Image must have a title';
+        if(caption.length > 255) newErrors.caption = 'Caption must be less than 255 characters';
+        if (!(basicPrice > 0) && !(exclusivePrice > 0) && !(royaltyRate > 0)) newErrors.rate = "You must select at least one price for your image";
+        if (basicPrice < 0 || exclusivePrice < 0 || royaltyRate < 0) newErrors.rate = "Price must be greater than 0";
+        if (royaltyRate > 100) newErrors.rate = 'Royalty rate cannot be above 100%';
+        if ((basicPrice && basicPrice.toString().includes('.')) || (exclusivePrice && exclusivePrice.toString().includes('.')) || (royaltyRate && royaltyRate.toString().includes('.'))) newErrors.rate = "Prices must be whole numbers";
+        console.log(newErrors)
+        setErrors(newErrors);
+    }, [title, caption, basicPrice, exclusivePrice, royaltyRate])
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // if errors alt
+        setHasSubmitted(true)
         if (Object.values(errors).length > 0) return
         const imageId = currentImage.id;
-        console.log('current image id in handle submit', imageId)
+        if (!basicPrice) basicPrice = 0
+        if (!exclusivePrice) exclusivePrice = 0
+        if (!royaltyRate) royaltyRate = 0
         const data = await dispatch(updateImageThunk(title, caption, basicPrice, exclusivePrice, royaltyRate, imageId))
         closeModal();
     }
@@ -50,20 +55,21 @@ function UpdateImageModal() {
             </div>
             <form id="update-image-form" onSubmit={handleSubmit}>
                 <label>
-                    Title
+                    <div>Title {hasSubmitted === true && errors.title ? <p className="upload-image-errors">{errors.title}</p> : <div></div>}</div>
                     <input
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                     ></input>
                 </label>
                 <label>
-                    Caption
+                    <div>Description{hasSubmitted === true && errors.caption ? <p className="upload-image-errors">{errors.caption}</p> : <div></div>}</div>
                     <textarea
                         value={caption}
                         onChange={(e) => setCaption(e.target.value)}
                     >
                     </textarea>
                 </label>
+                <div>{hasSubmitted === true && errors.rate ? <p className="upload-image-errors">{errors.rate}</p> : <div></div>}</div>
                 <label>
                     Basic Price
                     <input

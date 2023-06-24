@@ -36,6 +36,8 @@ function ImagePage() {
         dispatch(createCartItemThunk(cartItemData))
         return
     }
+    console.log(image.royalty_rate
+        )
 
 
     return (
@@ -46,15 +48,14 @@ function ImagePage() {
             <div id="single-image-info-bar">
                 <div id="single-image-information">
                     <p id="single-image-title"><span className="single-image-standard-text">Title: </span>{image.title}</p>
-                    <p id="single-image-caption"><span className="single-image-standard-text">Description: </span>{image.caption}</p>
-                </div>
+                    <p id="single-image-caption"><span id="single-image-caption-span" className="single-image-standard-text">Description: </span></p><p id="single-image-description">{image.caption}</p>
                 {currentUserId !== image.owner_id ?
                     <div id="single-image-cart-form-container">
                         <p id="single-image-pricing-header"><span className="single-image-standard-text">License Pricing:</span></p>
                         <div id="single-image-pricing-info">
-                            {image.basic_price && <p><span className="single-image-standard-text">Basic:</span>$ {image.basic_price}</p>}
-                            {image.exclusive_price && <p><span className="single-image-standard-text">Exclusive: </span>$ {image.exclusive_price}</p>}
-                            {image.royalty_rate && <p><span className="single-image-standard-text">Royalty Rate: </span>{image.royalty_rate} %</p>}
+                            {image.basic_price ? <p><span className="single-image-standard-text">Basic:</span>$ {image.basic_price}</p> : <div></div>}
+                            {image.exclusive_price ? <p><span className="single-image-standard-text">Exclusive: </span>$ {image.exclusive_price}</p>: <div></div>}
+                            {image.royalty_rate ? <p><span className="single-image-standard-text">Royalty Rate: </span>{image.royalty_rate} %</p> : <div></div>}
                         </div>
                         <form id="single-image-add-cart-form" onSubmit={handleSubmit}>
                             <label>
@@ -73,17 +74,28 @@ function ImagePage() {
                     <div id="single-image-cart-form-container">
                         <p id="single-image-pricing-header"><span className="single-image-standard-text">License Pricing:</span></p>
                         <div id="single-image-pricing-info">
-                            {image.basic_price && <p><span className="single-image-standard-text">Basic:</span>$ {image.basic_price}</p>}
-                            {image.exclusive_price && <p><span className="single-image-standard-text">Exclusive: </span>$ {image.exclusive_price}</p>}
-                            {image.royalty_rate && <p><span className="single-image-standard-text">Royalty Rate: </span>{image.royalty_rate} %</p>}
+                            {image.basic_price ? <p><span className="single-image-standard-text">Basic:</span>$ {image.basic_price}</p> : <div></div>}
+                            {image.exclusive_price ? <p><span className="single-image-standard-text">Exclusive: </span>$ {image.exclusive_price}</p> : <></> }
+                            {image.royalty_rate ? <p><span className="single-image-standard-text">Royalty Rate: </span>{image.royalty_rate} %</p> : <div></div>}
                         </div>
                     </div>
                 }
+                </div>
+                <div id="comments-section-container">
+                    <div id="comments-box-wrapper">
+                        <p>Comments Section Coming Soon</p>
+                        <div></div>
+                        <div id="comment-message-bar">
+                            Commenting coming soon...
+                        </div>
+                    </div>
+                </div>
                 <div id="single-image-artist-information">
                         <i class="fa-solid fa-camera"></i>
                     <div id="single-image-artist-info">
                         <p id="single-image-uploaded-by" className="single-image-standard-text">Uploaded by:</p>
                         <p id="single-image-artist-name">{image.artist_first_name} {image.artist_last_name}</p>
+                        <NavLink id='single-image-artist-link-wrapper' to={`/${image.owner_id}/images`}><p id="single-image-artist-link">See more images from {image.artist_first_name}</p></NavLink>
                     </div>
                     {currentUserId === image.owner_id &&
                         <div id="single-image-edit-image-container">
