@@ -19,7 +19,7 @@ function MyImagesPage() {
     useEffect(() => {
         dispatch(getOneArtistThunk(userId))
         dispatch(getUserImagesThunk(userId))
-    }, [])
+    }, [userId])
 
 
     return (
