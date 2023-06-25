@@ -57,7 +57,7 @@ function CheckoutPage() {
 
 
         // TODO - Make my licenses page
-        // history.push(`/${sessionUser.id}/licenses`)
+        history.push(`/${sessionUser.id}/licenses`)
     }
 
 

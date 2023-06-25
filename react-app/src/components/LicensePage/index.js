@@ -36,59 +36,32 @@ function LicensePage() {
 
 
     return (
-        <div id="single-image-page-container">
+        <div id="single-license-page-container">
             <div id="single-image-bar">
                 { license && <img id="single-page-image" src={license.image_url}/>}
             </div>
-            <div id="single-image-info-bar">
-                <div id="single-image-information">
-                    <p id="single-image-title"><span className="single-image-standard-text">Title: </span>{license.title}</p>
-                    <p id="single-image-caption"><span className="single-image-standard-text">Description: </span>{license.caption}</p>
-                </div>
-                {/* {currentUserId !== image.owner_id ?
-                    <div id="single-image-cart-form-container">
-                        <p id="single-image-pricing-header"><span className="single-image-standard-text">License Pricing:</span></p>
-                        <div id="single-image-pricing-info">
-                            {image.basic_price && <p><span className="single-image-standard-text">Basic:</span>$ {image.basic_price}</p>}
-                            {image.exclusive_price && <p><span className="single-image-standard-text">Exclusive: </span>$ {image.exclusive_price}</p>}
-                            {image.royalty_rate && <p><span className="single-image-standard-text">Royalty Rate: </span>{image.royalty_rate} %</p>}
-                        </div>
-                        <form id="single-image-add-cart-form" onSubmit={handleSubmit}>
-                            <label>
-                                <select value={type} onChange={(e) => setType(e.target.value)}>
-                                    <option value='basic'>Basic</option>
-                                    <option value='exclusive'>Exclusive</option>
-                                    <option value='royalty'>Royalty</option>
-                                </select>
-                            </label>
-                            <button type="submit">
-                                Add to Cart
-                            </button>
-                        </form>
+            <div id="single-license-info-bar">
+                <div id="single-license-information">
+                    <p id="single-license-title"><span className="single-license-standard-text">Title: </span>{license.title}</p>
+                    <div id="single-license-description-container">
+                        <p id="single-license-caption"><span className="single-license-standard-text">Description: </span></p>
+                        <p id="license-caption-body">{license.caption}</p>
                     </div>
-                    :
-                    <div id="single-image-cart-form-container">
-                        <p id="single-image-pricing-header"><span className="single-image-standard-text">License Pricing:</span></p>
-                        <div id="single-image-pricing-info">
-                            {image.basic_price && <p><span className="single-image-standard-text">Basic:</span>$ {image.basic_price}</p>}
-                            {image.exclusive_price && <p><span className="single-image-standard-text">Exclusive: </span>$ {image.exclusive_price}</p>}
-                            {image.royalty_rate && <p><span className="single-image-standard-text">Royalty Rate: </span>{image.royalty_rate} %</p>}
-                        </div>
-                    </div>
-                } */}
-                <div>
-                    <p>License Type: {license.type}</p>
                 </div>
-                <div id="single-image-artist-information">
+                <div id="license-type-container">
+                    <p id="license-type-header">License Type: </p>
+                    <p>{license.type}</p>
+                </div>
+                <div id="single-license-artist-information">
                         <i class="fa-solid fa-camera"></i>
-                    <div id="single-image-artist-info">
-                        <p id="single-image-uploaded-by" className="single-image-standard-text">Image by:</p>
-                        <p id="single-image-artist-name">{license.artist_first_name} {license.artist_last_name}</p>
+                    <div id="single-license-artist-info">
+                        <p id="single-license-uploaded-by" className="single-license-standard-text">Image by:</p>
+                        <p id="single-license-artist-name">{license.artist_first_name} {license.artist_last_name}</p>
                     </div>
                     {currentUserId === license.user_id && license.type === 'royalty' &&
-                        <div id="single-image-edit-image-container">
+                        <div id="single-license-edit-license-container">
                             <OpenModalButton
-                                buttonText={<div id="single-image-edit-image-text"><p id="single-image-edit-image-text">Cancel Royalty License </p><i className="fa-solid fa-ban"></i></div>}
+                                buttonText={<div id="single-license-edit-license-text"><p id="single-license-edit-license-text">Cancel Royalty License </p><i className="fa-solid fa-ban"></i></div>}
                                 modalComponent={<CancelLicenseModal />}
                             />
                         </div>

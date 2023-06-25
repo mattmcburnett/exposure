@@ -13,6 +13,7 @@
   border-bottom: 2px solid #0c0c0c31;
   position: fixed;
   top: 0;
+  z-index: 1;
 }
 
 #header-logo-and-title {
@@ -44,12 +45,18 @@
   top: 50px;
   right: 20px;
   background-color: white;
+
   border: 1px solid #555555;
   border-radius: 5px;
   width: 200px;
   height: 200px;
   list-style: none;
   padding: 20px;
+}
+
+.profile-dropdown p:hover {
+  text-decoration: underline;
+  color: rgb(123, 121, 121);
 }
 
 #profile-button {
@@ -255,4 +262,16 @@
 #navbar-left-container {
   display: flex;
   gap: 40px;
+}
+
+#profile-button-logout-button {
+  background: transparent;
+  border: 1px solid gray;
+  width: 80px;
+  border-radius: 5px;
+}
+
+#profile-button-logout-button:hover {
+  background-color: rgb(237, 233, 233);
+  cursor: pointer;
 }
