@@ -16,7 +16,7 @@ def get_all_images():
     images = Image.query.filter(Image.owner_id != None)
     imgs_dict = {}
     for image in images:
-        imgs_dict[image.owner_id] = image.to_dict()
+        imgs_dict[image.id] = image.to_dict()
     return imgs_dict
 
 

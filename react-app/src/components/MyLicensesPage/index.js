@@ -56,7 +56,9 @@ function MyLicensesPage() {
             <div className="artist-image-grid-container">
                 <p id="image-grid-header">Licenses</p>
                 <div className="images-grid-wrapper">
-                        {userId && Object.values(licenses).length && Object.values(licenses).map(license => (
+                        {!Object.values(licenses).length && <p>You have no licenses</p>}
+                        {userId && Object.values(licenses).length &&
+                            Object.values(licenses).map(license => (
                             <div key={license.id} className="artist-page-image-container">
                                 <NavLink className='artist-page-image-navlink' to={`/${userId}/licenses/${license.id}`}>
                                     <img className="artist-page-grid-image" src={license.image_url}/>

@@ -45,6 +45,7 @@ function MyImagesPage() {
             <div className="artist-image-grid-container">
                 <p id="image-grid-header">Images</p>
                 <div className="images-grid-wrapper">
+                        {!Object.values(artistImages).length && <p>You have no uploaded images</p>}
                         {Object.values(artistImages).length && Object.values(artistImages).map(image => (
                             <div key={image.id} className="artist-page-image-container">
                                 <NavLink className='artist-page-image-navlink' to={`/${userId}/${image.id}`}>

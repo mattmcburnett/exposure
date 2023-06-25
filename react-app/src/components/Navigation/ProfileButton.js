@@ -54,7 +54,7 @@ function ProfileButton({ user }) {
             <li><NavLink to={`/${user.id}/images`}><p>My Images</p></NavLink></li>
             <li><NavLink to={`/${user.id}/licenses`}><p>My Licenses</p></NavLink></li>
             <li>
-              <button onClick={handleLogout}>Log Out</button>
+              <button id="profile-button-logout-button" onClick={handleLogout}>Log Out</button>
             </li>
           </>
         ) : (
