@@ -33,7 +33,7 @@ function Navigation({ isLoaded }){
 	return (
 		<div id='navbar-wrapper'>
 			<div id='navbar-left-container'>
-				<NavLink id='header-logo-and-title' exact to="/"><i class="fa-solid fa-camera"></i><p>Exposure</p></NavLink>
+				<NavLink id='header-logo-and-title' exact to="/"><i className="fa-solid fa-camera"></i><p>Exposure</p></NavLink>
 
 				{isLoaded && sessionUser && (
 					<div id='home-link-wrapper'>

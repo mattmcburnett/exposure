@@ -17,8 +17,9 @@ function ImagePage() {
     const currentUser = useSelector(state => state.session.user);
     const [type, setType] = useState('basic');
     const [errors, setErrors] = useState('');
-
+    const cart = useSelector(state => state.cart)
     const currentUserId = currentUser.id
+    const [itemInCart, setItemInCart] = useState(false)
 
     useEffect(() => {
 
@@ -29,6 +30,17 @@ function ImagePage() {
 
     const handleSubmit = async (e) =>  {
         e.preventDefault();
+
+        for (let item of cart) {
+            // console.log(item.image_id);
+            // console.log(image.id)
+            if (image.id === item.image_id) {
+                setItemInCart(true);
+                return
+            }
+        }
+
+
         const cartItemData = new FormData();
         cartItemData.append("type", type)
         cartItemData.append('user_id', currentUserId)
@@ -36,14 +48,16 @@ function ImagePage() {
         dispatch(createCartItemThunk(cartItemData))
         return
     }
-    console.log(image.royalty_rate
-        )
+    // console.log(image.royalty_rate
+    //     )
 
 
     return (
         <div id="single-image-page-container">
             <div id="single-image-bar">
-                { image && <img id="single-page-image" src={image.image}/>}
+                <div id="single-page-image-container">
+                    {image && <img id="single-page-image" src={image.image}/>}
+                </div>
             </div>
             <div id="single-image-info-bar">
                 <div id="single-image-information">
@@ -69,6 +83,7 @@ function ImagePage() {
                                 Add to Cart
                             </button>
                         </form>
+                            {itemInCart && <p id="image-in-cart-error">This image is already in your cart</p>}
                     </div>
                     :
                     <div id="single-image-cart-form-container">
