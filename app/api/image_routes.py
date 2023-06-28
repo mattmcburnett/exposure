@@ -72,7 +72,6 @@ def get_user_images(id):
     return_images = {}
     for image in imgs_list:
         return_images[image.id] = image.to_dict()
-    # print('return_images 👀👀👀👀👀👀👀👀', return_images)
     return return_images
 
 

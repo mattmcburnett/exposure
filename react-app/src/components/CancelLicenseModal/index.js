@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
 import './CancelLicenseModal.css'
 import { deleteLicenseThunk } from "../../store/license";
-import { useHistory, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function CancelLicenseModal() {
 
@@ -17,10 +17,8 @@ function CancelLicenseModal() {
         e.preventDefault();
         const licenseId = currentLicense.id;
         dispatch(deleteLicenseThunk(licenseId))
-        //will redirect work better?
         closeModal();
         history.push(`/${currentUser.id}/licenses`)
-        // return <Redirect to={`/${currentUser.id}/licenses`} />
     }
 
     return (
