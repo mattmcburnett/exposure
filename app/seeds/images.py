@@ -217,7 +217,7 @@ def seed_images():
     #     royalty_rate = 3
     # )
 
-    db.session.add(marnie1)
+    # db.session.add(marnie1)
     db.session.add(marnie2)
     db.session.add(marnie3)
     db.session.add(marnie4)
