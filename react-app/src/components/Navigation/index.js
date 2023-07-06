@@ -17,7 +17,6 @@ function Navigation({ isLoaded }){
 	useEffect(() => {
 		if (sessionUser) {
 			dispatch(getCartItemsThunk(sessionUser.id))
-			// dispatch()
 		}
 	}, [sessionUser])
 

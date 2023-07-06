@@ -32,8 +32,7 @@ function ImagePage() {
         e.preventDefault();
 
         for (let item of cart) {
-            // console.log(item.image_id);
-            // console.log(image.id)
+            
             if (image.id === item.image_id) {
                 setItemInCart(true);
                 return
@@ -48,8 +47,7 @@ function ImagePage() {
         dispatch(createCartItemThunk(cartItemData))
         return
     }
-    // console.log(image.royalty_rate
-    //     )
+
 
 
     return (
