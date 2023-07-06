@@ -16,7 +16,7 @@ function HomePage() {
     const artistsList = artists.users
     const allImages = useSelector(state => state.image.allImages)
     const allImagesList = Object.values(allImages)
-
+    console.log('allimagesList ====>', allImagesList)
 
     useEffect(() => {
         // dispatch(getAllArtistsThunk())

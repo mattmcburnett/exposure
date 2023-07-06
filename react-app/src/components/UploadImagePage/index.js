@@ -17,6 +17,8 @@ function UploadImagePage() {
     const [basicPrice, setBasicPrice] = useState('');
     const [exclusivePrice, setExclusivePrice] = useState('');
     const [royaltyRate, setRoyaltyRate] = useState('');
+    const [imgHeight, setImageHeight] = useState();
+    const [imgWidth, setImageWidth] = useState();
     const [errors, setErrors] = useState({});
     // const [hasErrors, setHasErrors] = useState(false)
     const [hasSubmitted, setHasSubmitted] = useState(false)
@@ -36,15 +38,30 @@ function UploadImagePage() {
         if (basicPrice < 0 || exclusivePrice < 0 || royaltyRate < 0) newErrors.rate = "Price must be greater than 0";
         if (royaltyRate > 100) newErrors.rate = 'Royalty rate cannot be above 100%';
         if ((basicPrice && basicPrice.includes('.')) || (exclusivePrice && exclusivePrice.includes('.')) || (royaltyRate && royaltyRate.includes('.'))) newErrors.rate = "Prices must be whole numbers";
-        console.log(newErrors)
+        // if(image) {
+        //     const img = new Image();
+        //     const objectUrl = URL.createObjectURL(image)
+        //     // console.log('image ----> ', img.height)
+        //     img.onload = function () {
+        //         // alert(this.width + " " + this.height);
+        //         setImageHeight(this.height);
+        //         setImageWidth(this.width)
+        //     };
+        //     img.src = objectUrl
+        // }
         setErrors(newErrors);
     }, [image, title, caption, basicPrice, exclusivePrice, royaltyRate])
+
+
+    // useEffect(() => {
+
+    // })
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setHasSubmitted(true);
-
+        console.log(imgWidth)
         if (Object.values(errors).length) return;
 
         const imageData = new FormData();
