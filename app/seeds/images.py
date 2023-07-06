@@ -117,7 +117,7 @@ def seed_images():
 
     db.session.add(demo1)
     db.session.add(demo2)
-    db.session.add(demo3)
+    # db.session.add(demo3)
     db.session.add(demo4)
     db.session.add(demo5)
     db.session.add(demo6)
@@ -224,7 +224,7 @@ def seed_images():
     db.session.add(marnie5)
     db.session.add(marnie6)
     db.session.add(marnie7)
-    db.session.add(marnie8)
+    # db.session.add(marnie8)
 
     meredith1 = Image(
         image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/goutham-krishna-h5wvMCdOV3w-unsplash.jpg',
@@ -286,7 +286,7 @@ def seed_images():
     db.session.add(meredith2)
     db.session.add(meredith3)
     db.session.add(meredith4)
-    db.session.add(meredith5)
+    # db.session.add(meredith5)
 
     # saira1 = Image(
     #     image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/alexander-andrews-fsH1KjbdjE8-unsplash.jpg',
@@ -344,8 +344,8 @@ def seed_images():
         royalty_rate = 6
     )
 
-    db.session.add(saira1)
-    db.session.add(saira2)
+    # db.session.add(saira1)
+    # db.session.add(saira2)
     db.session.add(saira3)
     db.session.add(saira4)
     db.session.add(saira5)
@@ -407,8 +407,8 @@ def seed_images():
     )
 
     db.session.add(leighton1)
-    db.session.add(leighton2)
-    db.session.add(leighton3)
+    # db.session.add(leighton2)
+    # db.session.add(leighton3)
     db.session.add(leighton4)
     db.session.add(leighton5)
 
@@ -534,7 +534,7 @@ def seed_images():
     db.session.add(celia1)
     db.session.add(celia2)
     db.session.add(celia3)
-    db.session.add(celia4)
+    # db.session.add(celia4)
     db.session.add(celia5)
 
     # niels1 = Image(
@@ -593,7 +593,7 @@ def seed_images():
         royalty_rate = 4
     )
 
-    db.session.add(niels1)
+    # db.session.add(niels1)
     db.session.add(niels2)
     db.session.add(niels3)
     db.session.add(niels4)
@@ -656,7 +656,7 @@ def seed_images():
     )
 
     db.session.add(nor1)
-    db.session.add(nor2)
+    # db.session.add(nor2)
     db.session.add(nor3)
     db.session.add(nor4)
     db.session.add(nor5)
