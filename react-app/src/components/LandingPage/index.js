@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import './LandingPage.css'
-
+import './LandingPage.css';
+import ImageOne from './background-array-1.jpg';
+import ImageTwo from './background-array-2.jpg';
+import ImageThree from './background-array-3.jpg';
+import ImageFour from './background-array-4.jpg';
+import ImageFive from './background-array-5.jpg';
+import ImageSix from './background-image-6.jpg';
 
 
 
@@ -12,16 +17,16 @@ function LandingPage() {
     const currentUser = useSelector(state => state.session.user);
     const dispatch = useDispatch()
     const history = useHistory()
-    const [backgroundImage, setBackgroundImage] = useState('https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/qingbao-meng-01_igFr7hd4-unsplash.jpg')
+    const [backgroundImage, setBackgroundImage] = useState(ImageSix)
     let state = 0;
 
     const backgroundArray = [
-        'https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/qingbao-meng-01_igFr7hd4-unsplash.jpg',
-        'https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/tim-swaan-eOpewngf68w-unsplash.jpg',
-        'https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/aldebaran-s-qtRF_RxCAo0-unsplash.jpg',
-        'https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
-        'https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/craig-manners-nWphPE-HXEI-unsplash.jpg',
-        'https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/hans-jurgen-mager-qQWV91TTBrE-unsplash.jpg'
+        ImageSix,
+        ImageOne,
+        ImageTwo,
+        ImageThree,
+        ImageFour,
+        ImageFive,
     ]
 
 

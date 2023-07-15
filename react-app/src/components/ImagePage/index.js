@@ -8,6 +8,7 @@ import OpenModalButton from "../OpenModalButton";
 import UpdateImageModal from "../UpdateImageModal";
 import { createCartItemThunk } from "../../store/cart";
 import DeleteImageModal from "../DeleteImageModal";
+import { createCommentThunk, deleteCommentThunk, getImageCommentsThunk } from "../../store/comment";
 
 function ImagePage() {
 
@@ -17,22 +18,48 @@ function ImagePage() {
     const currentUser = useSelector(state => state.session.user);
     const [type, setType] = useState('basic');
     const [errors, setErrors] = useState('');
-    const cart = useSelector(state => state.cart)
-    const currentUserId = currentUser.id
-    const [itemInCart, setItemInCart] = useState(false)
+    const cart = useSelector(state => state.cart);
+    const currentUserId = currentUser.id;
+    const [itemInCart, setItemInCart] = useState(false);
+    const [comment, setComment] = useState('');
+    const comments = useSelector(state => state.comment.imageComments)
+
 
     useEffect(() => {
 
         dispatch(getOneImageThunk(imageId))
+        const objDiv = document.getElementById("comments-container");
+        objDiv.scrollTop = objDiv.scrollHeight;
 
     }, [])
 
+    useEffect(() => {
 
-    const handleSubmit = async (e) =>  {
+        dispatch(getImageCommentsThunk(imageId));
+
+    }, [dispatch])
+
+
+    const createComment = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append('user_id', currentUser.id);
+        formData.append('image_id', imageId);
+        formData.append('text', comment)
+
+        await dispatch(createCommentThunk(formData))
+        setComment('')
+        return dispatch(getImageCommentsThunk(imageId))
+
+    }
+
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         for (let item of cart) {
-            
+
             if (image.id === item.image_id) {
                 setItemInCart(true);
                 return
@@ -46,6 +73,13 @@ function ImagePage() {
         cartItemData.append('image_id', image.id)
         dispatch(createCartItemThunk(cartItemData))
         return
+    }
+
+
+    const deleteComment = async (commentId) => {
+
+        await dispatch(deleteCommentThunk(commentId))
+        return dispatch(getImageCommentsThunk(imageId))
     }
 
 
@@ -96,15 +130,44 @@ function ImagePage() {
                 </div>
                 <div id="comments-section-container">
                     <div id="comments-box-wrapper">
-                        <p>Comments Section Coming Soon</p>
-                        <div></div>
-                        <div id="comment-message-bar">
-                            Commenting coming soon...
+                        <div id="comments-container">
+                            {Object.values(comments).length ?
+                                Object.values(comments).map(comment => (
+                                    <div key={comment.id} className="comment-content-container">
+                                        <div className="comment-info">
+                                            <p className="comment-user-name">{comment.user_first_name} {comment.user_last_name}</p>
+                                            <p className="comment-date">{comment.created_at.split(' ')[2]} {comment.created_at.split(' ')[1]}, {comment.created_at.split(' ')[3]}</p>
+                                        </div>
+                                        <div className="comment-text-container">
+                                            <p className="comment-text">{comment.text}</p>
+                                            {comment.user_id === currentUser.id && <i onClick={() => deleteComment(comment.id)} className="fa-regular fa-trash-can"></i>}
+                                        </div>
+                                    </div>
+                                ))
+                                :
+                                <div>
+                                    <p className="comment-text">Show {image.artist_first_name} some love! Be the first to comment!</p>
+                                </div>
+
+                            }
                         </div>
+                        <form id="comment-submission-form">
+                            <div id="comment-message-bar">
+                                <textarea
+                                    value={comment}
+                                    onChange={(e) => setComment(e.target.value)}
+                                    maxLength={200}
+                                    minLength={1}
+                                    placeholder="Add a comment"
+                                >
+                                </textarea>
+                            </div>
+                            <button onClick={createComment} id="create-comment-button"><i className="fa-regular fa-paper-plane"></i></button>
+                        </form>
                     </div>
                 </div>
                 <div id="single-image-artist-information">
-                        <i class="fa-solid fa-camera"></i>
+                        <i className="fa-solid fa-camera"></i>
                     <div id="single-image-artist-info">
                         <p id="single-image-uploaded-by" className="single-image-standard-text">Uploaded by:</p>
                         <p id="single-image-artist-name">{image.artist_first_name} {image.artist_last_name}</p>

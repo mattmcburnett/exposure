@@ -5,13 +5,15 @@ import image from './image';
 import cart from './cart';
 import license from './license';
 import artist from './artist';
+import comment from'./comment';
 
 const rootReducer = combineReducers({
   session,
   image,
   cart,
   license,
-  artist
+  artist,
+  comment
 });
 
 

@@ -23,6 +23,7 @@ class Image(db.Model):
     user = db.relationship('User', back_populates='images')
     licenses = db.relationship('License', back_populates='image')
     cart_items = db.relationship('CartItem', back_populates='image', cascade="all, delete-orphan")
+    comments = db.relationship('Comment', back_populates = 'image', cascade="all, delete-orphan")
 
     def to_dict(self):
         return {

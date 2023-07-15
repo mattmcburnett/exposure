@@ -1,7 +1,6 @@
 from flask import Blueprint, jsonify, session, request
 from flask_login import login_required
-from app.models import db, User, Image, CartItem
-from .AWS_helpers import get_unique_filename, upload_file_to_s3
+from app.models import db, CartItem
 from ..forms.add_to_cart_form import AddToCartForm
 from .auth_routes import validation_errors_to_error_messages
 
