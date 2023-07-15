@@ -83,7 +83,6 @@ export const getUserImagesThunk = (id) => async (dispatch) => {
     const res = await fetch(`/api/images/${id}/images`);
     if(res.ok) {
         const images = await res.json();
-        console.log(images)
         dispatch(getUserImages(images));
         return images
     } else {
