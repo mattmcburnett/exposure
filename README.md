@@ -1,6 +1,8 @@
-# Flask React Project
+# Exposure
 
-This is the starter for the Flask React project.
+Exposure is an image sharing site where artists can upload and sell the rights to their images. Users can purchase image rights and upload their own images.
+
+Check out exposure at: https://exposure-y13f.onrender.com/
 
 ## Getting started
 1. Clone this repository (only this branch)
