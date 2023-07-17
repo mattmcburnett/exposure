@@ -4,7 +4,7 @@ Exposure is an image sharing site where artists can upload and sell the rights t
 
 Check out exposure at: https://exposure-y13f.onrender.com/
 
-![Screenshot 2023-07-14 at 5 10 05 PM](https://github.com/mattmcburnett/exposure/assets/110564751/fb25a0f0-88c7-45ff-93c4-30e672e783e7)
+![ezgif com-video-to-gif](https://github.com/mattmcburnett/exposure/assets/110564751/b6709255-69c6-454b-83ff-d07cc2728e21)
 
 
 ## Technologies and Frameworks
