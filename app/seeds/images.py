@@ -26,17 +26,17 @@ def seed_images():
         exclusive_price = 250,
         royalty_rate = 4
     )
-    # demo3 = Image(
-    #     image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/casey-horner-4rDCa5hBlCs-unsplash.jpg',
-    #     title= "Gazing Up",
-    #     caption='Peer through the towering sentinels of the forest',
-    #     owner_id = 1,
-    #     artist_first_name = 'Demo',
-    #     artist_last_name = 'User',
-    #     basic_price = 10,
-    #     exclusive_price = 100,
-    #     royalty_rate = 2
-    # )
+    demo3 = Image(
+        image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/casey-horner-4rDCa5hBlCs-unsplash.jpg',
+        title= "Gazing Up",
+        caption='Peer through the towering sentinels of the forest',
+        owner_id = 1,
+        artist_first_name = 'Demo',
+        artist_last_name = 'User',
+        basic_price = 10,
+        exclusive_price = 100,
+        royalty_rate = 2
+    )
     demo4 = Image(
         image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/daniil-silantev-F6Da4r2x5to-unsplash.jpg',
         title= "Tapestry of Ferns",
@@ -117,7 +117,7 @@ def seed_images():
 
     db.session.add(demo1)
     db.session.add(demo2)
-    # db.session.add(demo3)
+    db.session.add(demo3)
     db.session.add(demo4)
     db.session.add(demo5)
     db.session.add(demo6)
@@ -127,17 +127,17 @@ def seed_images():
     db.session.add(demo10)
 
 
-    # marnie1 = Image(
-    #     image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/ashwini-chaudhary-monty-gkIXFjDRyDc-unsplash.jpg',
-    #     title= "A Cloud-Capped Mountain",
-    #     caption='Lofty heights reaching into the heavens',
-    #     owner_id = 2,
-    #     artist_first_name = 'Marnie',
-    #     artist_last_name = 'Alpin',
-    #     basic_price = 10,
-    #     exclusive_price = 100,
-    #     royalty_rate = 1
-    # )
+    marnie1 = Image(
+        image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/ashwini-chaudhary-monty-gkIXFjDRyDc-unsplash.jpg',
+        title= "A Cloud-Capped Mountain",
+        caption='Lofty heights reaching into the heavens',
+        owner_id = 2,
+        artist_first_name = 'Marnie',
+        artist_last_name = 'Alpin',
+        basic_price = 10,
+        exclusive_price = 100,
+        royalty_rate = 1
+    )
     marnie2 = Image(
         image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/azin-javadzadeh-Ow4ijRO4ZJw-unsplash.jpg',
         title= "Serene Dominance",
@@ -205,26 +205,26 @@ def seed_images():
         royalty_rate = 2
     )
 
-    # marnie8 = Image(
-    #     image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/simon-fitall-tvleqH3p1os-unsplash.jpg',
-    #     title= "Approach of Winter",
-    #     caption='The enchanting transformation as winter spreads its icy touch across the forest',
-    #     owner_id = 2,
-    #     artist_first_name = 'Marnie',
-    #     artist_last_name = 'Alpin',
-    #     basic_price = 20,
-    #     exclusive_price = 300,
-    #     royalty_rate = 3
-    # )
+    marnie8 = Image(
+        image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/simon-fitall-tvleqH3p1os-unsplash.jpg',
+        title= "Approach of Winter",
+        caption='The enchanting transformation as winter spreads its icy touch across the forest',
+        owner_id = 2,
+        artist_first_name = 'Marnie',
+        artist_last_name = 'Alpin',
+        basic_price = 20,
+        exclusive_price = 300,
+        royalty_rate = 3
+    )
 
-    # db.session.add(marnie1)
+    db.session.add(marnie1)
     db.session.add(marnie2)
     db.session.add(marnie3)
     db.session.add(marnie4)
     db.session.add(marnie5)
     db.session.add(marnie6)
     db.session.add(marnie7)
-    # db.session.add(marnie8)
+    db.session.add(marnie8)
 
     meredith1 = Image(
         image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/goutham-krishna-h5wvMCdOV3w-unsplash.jpg',
@@ -270,46 +270,46 @@ def seed_images():
         exclusive_price = 300,
         royalty_rate = 3
     )
-    # meredith5 = Image(
-    #     image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/robert-lukeman-_RBcxo9AU-U-unsplash+(1).jpg',
-    #     title= "Order in Chaos",
-    #     caption= "Discover a captivating juxtaposition in nature's design",
-    #     owner_id = 3,
-    #     artist_first_name = 'Meredith',
-    #     artist_last_name = 'Reeve',
-    #     basic_price = 20,
-    #     exclusive_price = 300,
-    #     royalty_rate = 3
-    # )
+    meredith5 = Image(
+        image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/robert-lukeman-_RBcxo9AU-U-unsplash+(1).jpg',
+        title= "Order in Chaos",
+        caption= "Discover a captivating juxtaposition in nature's design",
+        owner_id = 3,
+        artist_first_name = 'Meredith',
+        artist_last_name = 'Reeve',
+        basic_price = 20,
+        exclusive_price = 300,
+        royalty_rate = 3
+    )
 
     db.session.add(meredith1)
     db.session.add(meredith2)
     db.session.add(meredith3)
     db.session.add(meredith4)
-    # db.session.add(meredith5)
+    db.session.add(meredith5)
 
-    # saira1 = Image(
-    #     image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/alexander-andrews-fsH1KjbdjE8-unsplash.jpg',
-    #     title= "Cosmic Symphony",
-    #     caption= "Immerse yourself in the mesmerizing hues of a celestial masterpiece",
-    #     owner_id = 4,
-    #     artist_first_name = 'Saira',
-    #     artist_last_name = 'Frazier',
-    #     basic_price = 30,
-    #     exclusive_price = 200,
-    #     royalty_rate = 6
-    # )
-    # saira2 = Image(
-    #     image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/casey-horner-RmoWqDCqN2E-unsplash.jpg',
-    #     title= "Stellar Spectacle",
-    #     caption= "Gaze up in awe as the night sky becomes a celestial theater",
-    #     owner_id = 4,
-    #     artist_first_name = 'Saira',
-    #     artist_last_name = 'Frazier',
-    #     basic_price = 30,
-    #     exclusive_price = 200,
-    #     royalty_rate = 6
-    # )
+    saira1 = Image(
+        image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/alexander-andrews-fsH1KjbdjE8-unsplash.jpg',
+        title= "Cosmic Symphony",
+        caption= "Immerse yourself in the mesmerizing hues of a celestial masterpiece",
+        owner_id = 4,
+        artist_first_name = 'Saira',
+        artist_last_name = 'Frazier',
+        basic_price = 30,
+        exclusive_price = 200,
+        royalty_rate = 6
+    )
+    saira2 = Image(
+        image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/casey-horner-RmoWqDCqN2E-unsplash.jpg',
+        title= "Stellar Spectacle",
+        caption= "Gaze up in awe as the night sky becomes a celestial theater",
+        owner_id = 4,
+        artist_first_name = 'Saira',
+        artist_last_name = 'Frazier',
+        basic_price = 30,
+        exclusive_price = 200,
+        royalty_rate = 6
+    )
     saira3 = Image(
         image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/jeremy-thomas-E0AHdsENmDg-unsplash.jpg',
         title= "Azure Cosmos",
@@ -344,8 +344,8 @@ def seed_images():
         royalty_rate = 6
     )
 
-    # db.session.add(saira1)
-    # db.session.add(saira2)
+    db.session.add(saira1)
+    db.session.add(saira2)
     db.session.add(saira3)
     db.session.add(saira4)
     db.session.add(saira5)
@@ -361,28 +361,28 @@ def seed_images():
         exclusive_price = 150,
         royalty_rate = 2
     )
-    # leighton2 = Image(
-    #     image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/dan-fisher-lb2cIHlyYsU-unsplash.jpg',
-    #     title= "Nocturnal Wanderings",
-    #     caption= "Under the gentle glow of green lights",
-    #     owner_id = 5,
-    #     artist_first_name = 'Leighton',
-    #     artist_last_name = 'Wiley',
-    #     basic_price = 15,
-    #     exclusive_price = 150,
-    #     royalty_rate = 2
-    # )
-    # leighton3 = Image(
-    #     image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/hayato-togashi-rCO-ROEfV50-unsplash.jpg',
-    #     title= "Shadows of the City",
-    #     caption= "Silhouetted figures embark on a rhythmic journey along the city sidewalk",
-    #     owner_id = 5,
-    #     artist_first_name = 'Leighton',
-    #     artist_last_name = 'Wiley',
-    #     basic_price = 15,
-    #     exclusive_price = 150,
-    #     royalty_rate = 2
-    # )
+    leighton2 = Image(
+        image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/dan-fisher-lb2cIHlyYsU-unsplash.jpg',
+        title= "Nocturnal Wanderings",
+        caption= "Under the gentle glow of green lights",
+        owner_id = 5,
+        artist_first_name = 'Leighton',
+        artist_last_name = 'Wiley',
+        basic_price = 15,
+        exclusive_price = 150,
+        royalty_rate = 2
+    )
+    leighton3 = Image(
+        image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/hayato-togashi-rCO-ROEfV50-unsplash.jpg',
+        title= "Shadows of the City",
+        caption= "Silhouetted figures embark on a rhythmic journey along the city sidewalk",
+        owner_id = 5,
+        artist_first_name = 'Leighton',
+        artist_last_name = 'Wiley',
+        basic_price = 15,
+        exclusive_price = 150,
+        royalty_rate = 2
+    )
     leighton4 = Image(
         image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/kajetan-sumila-rxgeOVBmSHg-unsplash.jpg',
         title= "Proud",
@@ -407,8 +407,8 @@ def seed_images():
     )
 
     db.session.add(leighton1)
-    # db.session.add(leighton2)
-    # db.session.add(leighton3)
+    db.session.add(leighton2)
+    db.session.add(leighton3)
     db.session.add(leighton4)
     db.session.add(leighton5)
 
@@ -508,17 +508,17 @@ def seed_images():
         exclusive_price = 250,
         royalty_rate = 3
     )
-    # celia4 = Image(
-    #     image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/mahdi-bafande-7ftQLT1MP04-unsplash+(1).jpg',
-    #     title= "Radiant Trails",
-    #     caption= "vibrant trails of multicolor illumination",
-    #     owner_id = 7,
-    #     artist_first_name = 'Celia',
-    #     artist_last_name = 'Torrejon',
-    #     basic_price = 10,
-    #     exclusive_price = 250,
-    #     royalty_rate = 3
-    # )
+    celia4 = Image(
+        image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/mahdi-bafande-7ftQLT1MP04-unsplash+(1).jpg',
+        title= "Radiant Trails",
+        caption= "vibrant trails of multicolor illumination",
+        owner_id = 7,
+        artist_first_name = 'Celia',
+        artist_last_name = 'Torrejon',
+        basic_price = 10,
+        exclusive_price = 250,
+        royalty_rate = 3
+    )
     celia5 = Image(
         image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/visax--vBn1T8g0D4-unsplash.jpg',
         title= "Shadowed Red",
@@ -534,20 +534,20 @@ def seed_images():
     db.session.add(celia1)
     db.session.add(celia2)
     db.session.add(celia3)
-    # db.session.add(celia4)
+    db.session.add(celia4)
     db.session.add(celia5)
 
-    # niels1 = Image(
-    #     image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/alexander-andrews-mEdKuPYJe1I-unsplash+(1).jpg',
-    #     title= "Cunning Gaze",
-    #     caption= "piercing eyes hold a glimpse into the wild allure of nature's cunning beauty.",
-    #     owner_id = 8,
-    #     artist_first_name = 'Niels',
-    #     artist_last_name = 'Wilde',
-    #     basic_price = 25,
-    #     exclusive_price = 500,
-    #     royalty_rate = 4
-    # )
+    niels1 = Image(
+        image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/alexander-andrews-mEdKuPYJe1I-unsplash+(1).jpg',
+        title= "Cunning Gaze",
+        caption= "piercing eyes hold a glimpse into the wild allure of nature's cunning beauty.",
+        owner_id = 8,
+        artist_first_name = 'Niels',
+        artist_last_name = 'Wilde',
+        basic_price = 25,
+        exclusive_price = 500,
+        royalty_rate = 4
+    )
     niels2 = Image(
         image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/geran-de-klerk-wYy3rvvgjAU-unsplash+(1).jpg',
         title= "Regal Perch",
@@ -593,7 +593,7 @@ def seed_images():
         royalty_rate = 4
     )
 
-    # db.session.add(niels1)
+    db.session.add(niels1)
     db.session.add(niels2)
     db.session.add(niels3)
     db.session.add(niels4)
@@ -610,17 +610,17 @@ def seed_images():
         exclusive_price = 400,
         royalty_rate = 5
     )
-    # nor2 = Image(
-    #     image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/kino--MWoUTlQcHA-unsplash.jpg',
-    #     title= "A Playful Spray",
-    #     caption= "Whimsical charm of a tiny beach spray",
-    #     owner_id = 9,
-    #     artist_first_name = 'Nor',
-    #     artist_last_name = 'Radzi',
-    #     basic_price = 30,
-    #     exclusive_price = 400,
-    #     royalty_rate = 5
-    # )
+    nor2 = Image(
+        image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/kino--MWoUTlQcHA-unsplash.jpg',
+        title= "A Playful Spray",
+        caption= "Whimsical charm of a tiny beach spray",
+        owner_id = 9,
+        artist_first_name = 'Nor',
+        artist_last_name = 'Radzi',
+        basic_price = 30,
+        exclusive_price = 400,
+        royalty_rate = 5
+    )
     nor3 = Image(
         image='https://exposure-flickr-clone.s3.us-west-2.amazonaws.com/matt-hardy-6ArTTluciuA-unsplash+(1).jpg',
         title= "Ripples in the ocean",
@@ -656,7 +656,7 @@ def seed_images():
     )
 
     db.session.add(nor1)
-    # db.session.add(nor2)
+    db.session.add(nor2)
     db.session.add(nor3)
     db.session.add(nor4)
     db.session.add(nor5)
