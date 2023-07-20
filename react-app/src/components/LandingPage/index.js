@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import './LandingPage.css';
 import ImageOne from './background-array-1.jpg';
 import ImageTwo from './background-array-2.jpg';
@@ -8,7 +8,7 @@ import ImageThree from './background-array-3.jpg';
 import ImageFour from './background-array-4.jpg';
 import ImageFive from './background-array-5.jpg';
 import ImageSix from './background-image-6.jpg';
-
+import Dev from './climbing-prof.jpg'
 
 
 
@@ -74,6 +74,24 @@ function LandingPage() {
                     <button onClick={goToSignup} id="sign-up-free-button">Sign up for free</button>
                 }
 
+            </div>
+            <div id="footer">
+                <div id="footer-content-wrapper">
+                    <div>
+                        <p id="meet">Meet the Developer</p>
+                    </div>
+                    <div id="dev-info-wrapper">
+                        <div id="name-image-container">
+
+                            <p id="name">Matt McBurnett</p>
+                        </div>
+                        <div id="dev-links">
+                            <Link to={{pathname: 'https://github.com/mattmcburnett'}} target="_blank"><i className="fa-brands fa-github"></i></Link>
+                            <Link to={{pathname: 'https://www.linkedin.com/in/matt-mcburnett/'}} target="_blank"><div id="linkedin-background"><i className="fa-brands fa-linkedin"></i></div></Link>
+                            <Link to={{pathname: 'https://mattmcburnett.github.io/'}} target="_blank"><p id="my-portfolio-link">My Portfolio</p></Link>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
