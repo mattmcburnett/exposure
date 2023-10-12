@@ -30,7 +30,7 @@ function LandingPage() {
     ]
 
 
-
+    // reusable image slideshow function
     useEffect(() => {
         const int = setInterval(() => {
             console.log('hitting the useEffect')
