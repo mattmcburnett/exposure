@@ -8,14 +8,13 @@ import ImageThree from './background-array-3.jpg';
 import ImageFour from './background-array-4.jpg';
 import ImageFive from './background-array-5.jpg';
 import ImageSix from './background-image-6.jpg';
-import Dev from './climbing-prof.jpg'
-
+import BackgroundSlider from 'react-background-slider'
 
 
 function LandingPage() {
 
     const currentUser = useSelector(state => state.session.user);
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     const history = useHistory()
     const [backgroundImage, setBackgroundImage] = useState(ImageSix)
     let state = 0;
@@ -29,28 +28,25 @@ function LandingPage() {
         ImageFive,
     ]
 
+    // reusable image slideshow function
+    // useEffect(() => {
+    //     const int = setInterval(() => {
+    //         console.log('hitting the useEffect')
+    //         if(state === 5) {
+    //             state = 0
+    //             setBackgroundImage(backgroundArray[state])
+    //         } else {
+    //             state+= 1
+    //             setBackgroundImage(backgroundArray[state])
+    //         }
+    //         console.log(state)
+    //     }, 5000)
+    //     return () => {
+    //         clearInterval(int)
+    //     }
+    // }, [state])
 
 
-    useEffect(() => {
-        const int = setInterval(() => {
-            console.log('hitting the useEffect')
-            if(state === 5) {
-                state = 0
-                setBackgroundImage(backgroundArray[state])
-            } else {
-                state+= 1
-                setBackgroundImage(backgroundArray[state])
-            }
-            console.log(state)
-        }, 5000)
-        return () => {
-            clearInterval(int)
-        }
-
-
-    }, [state])
-
-    console.log(backgroundArray[0]);
 
     const goHome = () => {
         history.push('/home')
@@ -62,7 +58,12 @@ function LandingPage() {
 
 
     return (
-        <div id="landing-page-wrapper" style={{backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
+        <div>
+            <BackgroundSlider
+            images={[ImageSix, ImageOne, ImageTwo, ImageThree, ImageFour, ImageFive]}
+            duration={5}
+            transition={2}
+            />
             <div id="landing-page-content-container">
                 <div id="landing-page-text">
                     <h1>Create. Inspire. Share.</h1>
@@ -73,7 +74,6 @@ function LandingPage() {
                     :
                     <button onClick={goToSignup} id="sign-up-free-button">Sign up for free</button>
                 }
-
             </div>
             <div id="footer">
                 <div id="footer-content-wrapper">
