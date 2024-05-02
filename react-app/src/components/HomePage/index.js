@@ -2,10 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import './HomePage.css'
-// import { useParams } from "react-router-dom";
 import { getAllImagesThunk } from "../../store/image";
-// import { getAllArtistsThunk } from "../../store/artist";
-
+import { MasonryInfiniteGrid } from "@egjs/react-infinitegrid";
 
 
 function HomePage() {
@@ -16,10 +14,8 @@ function HomePage() {
     const artistsList = artists.users
     const allImages = useSelector(state => state.image.allImages)
     const allImagesList = Object.values(allImages)
-    console.log('allimagesList ====>', allImagesList)
 
     useEffect(() => {
-        // dispatch(getAllArtistsThunk())
         dispatch(getAllImagesThunk())
     }, [])
 
@@ -32,13 +28,27 @@ function HomePage() {
                     <p>Find what you've been looking for. Amazing images and straighforward pricing. </p>
                 </div>
                 <div id="home-page-image-display">
-                    {allImagesList &&
+                    <MasonryInfiniteGrid
+                        align="center"
+                        gap={5}
+                        data-grid-width="100"
+                        data-grid-height="100"
+                    >
+                        {allImagesList &&
                         allImagesList.map(image => (
                             <NavLink key={image.id} to={`/${image.owner_id}/${image.id}`}>
                                 <img className="home-page-grid-image" src={image.image} />
                             </NavLink>
                         ))
-                    }
+                        }
+                    </MasonryInfiniteGrid>
+                    {/* {allImagesList &&
+                        allImagesList.map(image => (
+                            <NavLink key={image.id} to={`/${image.owner_id}/${image.id}`}>
+                                <img className="home-page-grid-image" src={image.image} />
+                            </NavLink>
+                        ))
+                    } */}
                 </div>
             </div>
         </div>
