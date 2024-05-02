@@ -28,16 +28,16 @@
 
 #home-page-image-display {
     width: 95%;
-    padding: 20px;
     background-color: rgba(255, 255, 255, 0.649);
+    padding: 20px;
     border-radius: 5px;
     /* display: grid;
     grid-template-columns: 1fr 1fr; */
-    margin-bottom: 50px;
+    /* margin-bottom: 50px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: center;
+    justify-content: center;  */
 }
 
 #artist-pages-header{
@@ -71,7 +71,6 @@
     height: 120px;
     /* object-fit: contain; */
     /* display: flex; */
-
 }
 
 .home-page-grid-item-text-container{
@@ -104,8 +103,8 @@
 }
 
 .home-page-grid-image {
-    height: 150px;
-    width: auto;
+    /* height: 150px; */
+    width: 150px;
     transition: transform .2s;
 }
 
